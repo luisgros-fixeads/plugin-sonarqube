@@ -1,6 +1,6 @@
-## Athena's SonarQube Plugin
+# Athena's SonarQube Plugin
 
-# Usage
+## Usage
 
 ```sh
 ./athena sonarqube server start
