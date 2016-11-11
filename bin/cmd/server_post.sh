@@ -11,6 +11,7 @@ if ! $(curl --output /dev/null --silent --head --fail http://$SQSERVER_IP:9000) 
 	if [ $retry -lt $retries ]; then
 		printf "\n"
 		athena.ok "SonarQube Server is running"
+		athena.ok "http://$SQSERVER_IP:9000"
 	fi
 fi
 
