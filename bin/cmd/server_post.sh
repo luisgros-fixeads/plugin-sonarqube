@@ -1,17 +1,20 @@
-if ! $(curl --output /dev/null --silent --head --fail http://$SQSERVER_IP:9000) && [ $option == 'start' ] || [ $option == 'restart' ]; then
-	retry=0
-	retries=30
+if [ $option != 'stop' ]; then
+	time=1
+	timeout=30
 
-	until $(curl --output /dev/null --silent --head --fail http://$SQSERVER_IP:9000) || [ $retry -ge $retries ]; do
-		retry=$((retry + 1))
+	SQ_SERVER_IP=$(athena.docker.get_ip_for_container "$SQ_SERVER_CONTAINER")
+
+	until $(curl --silent --head --fail --output /dev/null http://$SQ_SERVER_IP:9000) || [ $time -ge $timeout ]; do
 		printf '.'
 		sleep 1
+		((time++))
 	done
 
-	if [ $retry -lt $retries ]; then
+	if [ $time -lt $timeout ]; then
 		printf "\n"
 		athena.ok "SonarQube Server is running"
-		athena.ok "http://$SQSERVER_IP:9000"
+		athena.ok "http://$SQ_SERVER_IP:9000"
+	else
+		athena.error "Unable to start SonarQube Server"
 	fi
 fi
-

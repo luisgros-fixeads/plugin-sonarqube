@@ -1,3 +1,3 @@
-CMD_DESCRIPTION="SonarQube Scanner"
+SQ_SCANNER_OPTS="$(athena.args)"
 
-# here is where you add you the instructions that should run inside the container
+sonar-scanner $SQ_SCANNER_OPTS
