@@ -1,4 +1,4 @@
-# Athena's SonarQube Plugin
+## Athena SonarQube Plugin
 
 ### How to
 
@@ -28,3 +28,15 @@ git clone https://github.com/athena-oss/athena.git
              -Dsonar.sources=vendor/mycode/to/be/analysed/ \
              -Dsonar.host.url=http://othersonarqube.server.com:9000
 ```
+
+#### Resources
+
+[Athena](https://github.com/athena-oss/athena)
+
+[SonarQube Server User Guide](http://docs.sonarqube.org/display/SONAR/User+Guide)
+
+[Analyzing with SonarQube Scanner](http://docs.sonarqube.org/display/SCAN/Analyzing+with+SonarQube+Scanner)
+
+[SonarQube PHP Plugin](http://docs.sonarqube.org/display/SCAN/Analyzing+with+SonarQube+Scanner)
+
+[SonarQube GitHub Plugin](http://docs.sonarqube.org/display/PLUG/GitHub+Plugin)
