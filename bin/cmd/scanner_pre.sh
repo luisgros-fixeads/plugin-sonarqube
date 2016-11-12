@@ -1,7 +1,5 @@
 CMD_DESCRIPTION="SonarQube Scanner"
 
-athena.usage 1 "<project-path> [<sonar-scanner-options>]"
-
-option="$(athena.arg 1)"
+athena.usage 1 "<project-absolute-path> [<sonar-scanner-options>]"
 
 athena.plugins.sonarqube.scanner
