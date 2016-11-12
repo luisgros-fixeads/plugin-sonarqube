@@ -20,7 +20,7 @@ git clone https://github.com/athena-oss/athena.git
 ```sh
 # Start SonarQube Server
 ./athena sonarqube server start
-# Customize and Place the example file in this plugin "sonar-project.properties" inside 
+# Customize and place the example file in this plugin "sonar-project.properties" inside 
 # your project's root dir and then run SonarQube Scanner
 ./athena sonarqube scanner /absolute/path/to/php/project/to/be/analysed
 # (Optional) with SonarQube Scanner options
