@@ -9,7 +9,7 @@ brew install athena
 # OR
 git clone https://github.com/athena-oss/athena.git
 ```
-[More info here](https://github.com/athena-oss/athena)
+[More info](https://github.com/athena-oss/athena)
 
 #### Install the SonarQube plugin
 ```sh
@@ -20,13 +20,22 @@ git clone https://github.com/athena-oss/athena.git
 ```sh
 # Start SonarQube Server
 ./athena sonarqube server start
-# Customize and place the example file in this plugin "sonar-project.properties" inside 
-# your project's root dir and then run SonarQube Scanner
-./athena sonarqube scanner /absolute/path/to/php/project/to/be/analysed
-# (Optional) with SonarQube Scanner options
-./athena sonarqube scanner /absolute/path/to/project/root/ \
-             -Dsonar.sources=vendor/mycode/to/be/analysed/ \
-             -Dsonar.host.url=http://othersonarqube.server.com:9000
+
+# Quick
+./athena sonarqube scanner ~/myproject/root/dir \
+             -Dsonar.projectKey=my-web-project \ 
+             -Dsonar.sources=vendor/mylibrary/src/file.php,someother/dir/myscript.php
+           
+# Using a different SonarQube Server            
+./athena sonarqube scanner /home/example/myotherproject/ \
+             -Dsonar.projectKey=some-project \ 
+             -Dsonar.sources=vendor/mycode/,vendor/somelib/file.php \
+             -Dsonar.host.url=http://othersonarserver.com:9000
+             
+# If you use the same SonarQube Scanner options most of the time you might consider
+# placing the example file in this plugin "sonar-project.properties" inside 
+# your project's base directory and run the scanner
+./athena sonarqube scanner /home/example/myproject/
 ```
 
 #### Resources
