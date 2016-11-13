@@ -31,11 +31,13 @@ function athena.plugins.sonarqube.scanner()
 	SQ_SERVER_IP=$(athena.docker.get_ip_for_container "$SQ_SERVER_CONTAINER")
 
 	athena.argument.get_argument_and_remove 1 PROJECT_BASE_DIR
+	PROJECT_BASE_DIR=$(athena.fs.get_full_path "$PROJECT_BASE_DIR")
+
 	athena.argument.prepend_to_arguments "-Dsonar.host.url=http://$SQ_SERVER_IP:9000"
 	athena.argument.prepend_to_arguments "-Dsonar.projectBaseDir=$PROJECT_BASE_DIR"
 
 	athena.plugin.use_container 'scanner'
-	athena.docker.mount_dir "$PROJECT_BASE_DIR" "$PROJECT_BASE_DIR"
+	athena.docker.mount "$PROJECT_BASE_DIR" "$PROJECT_BASE_DIR"
 }
 
 function athena.plugins.sonarqube.scanner_stop()
