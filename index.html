@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>plugin-sonarqube by luisgros-fixeads</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">plugin-sonarqube</h1>
+      <h2 class="project-tagline">Athena SonarQube Plugin</h2>
+      <a href="https://github.com/luisgros-fixeads/plugin-sonarqube" class="btn">View on GitHub</a>
+      <a href="https://github.com/luisgros-fixeads/plugin-sonarqube/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/luisgros-fixeads/plugin-sonarqube/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h2>
+<a id="athena-sonarqube-plugin" class="anchor" href="#athena-sonarqube-plugin" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Athena SonarQube Plugin</h2>
+
+<h3>
+<a id="how-to" class="anchor" href="#how-to" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>How to</h3>
+
+<h4>
+<a id="install-athena" class="anchor" href="#install-athena" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Install Athena</h4>
+
+<div class="highlight highlight-source-shell"><pre>brew tap athena-oss/tap
+brew install athena
+<span class="pl-c"># OR</span>
+git clone https://github.com/athena-oss/athena.git</pre></div>
+
+<p><a href="https://github.com/athena-oss/athena">More info</a></p>
+
+<h4>
+<a id="install-the-sonarqube-plugin" class="anchor" href="#install-the-sonarqube-plugin" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Install the SonarQube plugin</h4>
+
+<div class="highlight highlight-source-shell"><pre>./athena plugins install sonarqube git@github.com:luisgros-fixeads/plugin-sonarqube.git</pre></div>
+
+<h4>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Usage</h4>
+
+<div class="highlight highlight-source-shell"><pre>./athena sonarqube server <span class="pl-k">&lt;</span>start<span class="pl-k">|</span>stop<span class="pl-k">|</span>restart<span class="pl-k">&gt;</span>
+./athena sonarqube scanner <span class="pl-k">&lt;</span>project-base-directory<span class="pl-k">&gt;</span> [<span class="pl-k">&lt;</span>sonar-scanner-options<span class="pl-k">&gt;</span>]</pre></div>
+
+<h4>
+<a id="examples" class="anchor" href="#examples" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h4>
+
+<div class="highlight highlight-source-shell"><pre><span class="pl-c"># Start SonarQube Server</span>
+./athena sonarqube server start
+
+<span class="pl-c"># Quick scan</span>
+./athena sonarqube scanner <span class="pl-k">~</span>/myproject/root/dir \
+             -Dsonar.projectKey=my-web-project <span class="pl-cce">\ </span>
+             -Dsonar.sources=vendor/mylibrary/src/file.php,someother/dir/myscript.php
+
+<span class="pl-c"># Using a different SonarQube Server            </span>
+./athena sonarqube scanner /home/example/myotherproject/ \
+             -Dsonar.projectKey=some-project <span class="pl-cce">\ </span>
+             -Dsonar.sources=vendor/mycode/,vendor/somelib/file.php \
+             -Dsonar.host.url=http://othersonarserver.com:9000
+
+<span class="pl-c"># If most of the time you use the same SonarQube Scanner options you should consider</span>
+<span class="pl-c"># placing the example file in this plugin "sonar-project.properties" inside </span>
+<span class="pl-c"># your project base directory and run the scanner</span>
+./athena sonarqube scanner /home/example/myproject/</pre></div>
+
+<h4>
+<a id="resources" class="anchor" href="#resources" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Resources</h4>
+
+<p><a href="https://github.com/athena-oss/athena">Athena</a></p>
+
+<p><a href="http://docs.sonarqube.org/display/SONAR/User+Guide">SonarQube Server User Guide</a></p>
+
+<p><a href="http://docs.sonarqube.org/display/SCAN/Analyzing+with+SonarQube+Scanner">Analyzing with SonarQube Scanner</a></p>
+
+<p><a href="http://docs.sonarqube.org/display/SCAN/Analyzing+with+SonarQube+Scanner">SonarQube PHP Plugin</a></p>
+
+<p><a href="http://docs.sonarqube.org/display/PLUG/GitHub+Plugin">SonarQube GitHub Plugin</a></p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/luisgros-fixeads/plugin-sonarqube">plugin-sonarqube</a> is maintained by <a href="https://github.com/luisgros-fixeads">luisgros-fixeads</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
