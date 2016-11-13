@@ -39,9 +39,9 @@ git clone https://github.com/athena-oss/athena.git
              -Dsonar.sources=vendor/mycode/,vendor/somelib/file.php \
              -Dsonar.host.url=http://othersonarserver.com:9000
              
-# If you use the same SonarQube Scanner options most of the time you should consider
+# If most of the time you use the same SonarQube Scanner options you should consider
 # placing the example file in this plugin "sonar-project.properties" inside 
-# your project's base directory and run the scanner
+# your project base directory and run the scanner
 ./athena sonarqube scanner /home/example/myproject/
 ```
 
