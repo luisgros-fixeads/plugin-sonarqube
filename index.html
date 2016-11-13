@@ -47,25 +47,31 @@ git clone https://github.com/athena-oss/athena.git</pre></div>
 ./athena sonarqube scanner <span class="pl-k">&lt;</span>project-base-directory<span class="pl-k">&gt;</span> [<span class="pl-k">&lt;</span>sonar-scanner-options<span class="pl-k">&gt;</span>]</pre></div>
 
 <h4>
-<a id="examples" class="anchor" href="#examples" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h4>
+<a id="example" class="anchor" href="#example" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example</h4>
 
-<div class="highlight highlight-source-shell"><pre><span class="pl-c"># Start SonarQube Server</span>
-./athena sonarqube server start
+<p>Start SonarQube Server</p>
 
-<span class="pl-c"># Quick scan</span>
-./athena sonarqube scanner <span class="pl-k">~</span>/myproject/root/dir \
-             -Dsonar.projectKey=my-web-project <span class="pl-cce">\ </span>
-             -Dsonar.sources=vendor/mylibrary/src/file.php,someother/dir/myscript.php
+<div class="highlight highlight-source-shell"><pre>./athena sonarqube server start</pre></div>
 
-<span class="pl-c"># Using a different SonarQube Server            </span>
-./athena sonarqube scanner /home/example/myotherproject/ \
-             -Dsonar.projectKey=some-project <span class="pl-cce">\ </span>
-             -Dsonar.sources=vendor/mycode/,vendor/somelib/file.php \
-             -Dsonar.host.url=http://othersonarserver.com:9000
+<p>Quick scan</p>
 
-<span class="pl-c"># If most of the time you use the same SonarQube Scanner options you should consider</span>
-<span class="pl-c"># placing the example file in this plugin "sonar-project.properties" inside </span>
-<span class="pl-c"># your project base directory and run the scanner</span>
+<div class="highlight highlight-source-shell"><pre>./athena sonarqube scanner <span class="pl-k">~</span>/myproject/root/dir</pre></div>
+
+<p>Using SonarQube Scanner options to only analyze certain files and directories</p>
+
+<div class="highlight highlight-source-shell"><pre>./athena sonarqube scanner /home/example/myotherproject/ \
+           -Dsonar.sources=vendor/mycode/script.php, somelib/file.php, web/</pre></div>
+
+<p>Using a different SonarQube Server</p>
+
+<div class="highlight highlight-source-shell"><pre>./athena sonarqube scanner /home/example/myotherproject/ \
+           -Dsonar.host.url=http://othersonarserver:9000</pre></div>
+
+<p>Creating a <a href="sonar-project.properties">sonar-project.properties</a> file inside your project's root directory</p>
+
+<div class="highlight highlight-source-shell"><pre>curl -o /home/example/myproject/ \
+  https://raw.githubusercontent.com/luisgros-fixeads/plugin-sonarqube/master/sonar-project.properties
+
 ./athena sonarqube scanner /home/example/myproject/</pre></div>
 
 <h4>
