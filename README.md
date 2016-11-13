@@ -45,6 +45,7 @@ Using a different SonarQube Server
 ```sh  
 ./athena sonarqube scanner /home/example/myotherproject/ \
            -Dsonar.host.url=http://othersonarserver:9000
+           -Dsonar.sources=vendor/mylib/, pubic/example.php
 ```
 
 Creating a [sonar-project.properties](sonar-project.properties) file inside your project's root directory
