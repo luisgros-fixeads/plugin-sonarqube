@@ -35,6 +35,8 @@ function athena.plugins.sonarqube.scanner()
 
 	athena.argument.prepend_to_arguments "-Dsonar.host.url=http://$SQ_SERVER_IP:9000"
 	athena.argument.prepend_to_arguments "-Dsonar.projectBaseDir=$PROJECT_BASE_DIR"
+	athena.argument.prepend_to_arguments "-Dsonar.projectKey=athena-sonarqube-project"
+	athena.argument.prepend_to_arguments "-Dsonar.sources=$PROJECT_BASE_DIR"
 
 	athena.plugin.use_container 'scanner'
 	athena.docker.mount "$PROJECT_BASE_DIR" "$PROJECT_BASE_DIR"
