@@ -49,7 +49,7 @@ Using a different SonarQube Server
 
 Creating a [sonar-project.properties](sonar-project.properties) file inside your project's root directory
 ```sh
-curl -o /home/example/myproject/ \
+curl -o /home/example/myproject/sonar-project.properties \
   https://raw.githubusercontent.com/luisgros-fixeads/plugin-sonarqube/master/sonar-project.properties
   
 ./athena sonarqube scanner /home/example/myproject/
