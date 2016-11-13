@@ -25,12 +25,12 @@ git clone https://github.com/athena-oss/athena.git
 
 #### Example
 
-Start SonarQube Server
+Starting SonarQube Server
 ```sh
 ./athena sonarqube server start
 ```
 
-Quick scan
+Running a scan
 ```sh
 ./athena sonarqube scanner ~/myproject/root/dir
 ```
