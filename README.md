@@ -6,7 +6,7 @@
 ```sh
 brew tap athena-oss/tap
 brew install athena
-# OR
+# Or
 git clone https://github.com/athena-oss/athena.git
 ```
 [More info](https://github.com/athena-oss/athena)
@@ -32,7 +32,7 @@ Starting SonarQube Server
 
 Running a scan
 ```sh
-./athena sonarqube scanner ~/myproject/root/dir
+./athena sonarqube scanner ~/myproject/
 ```
 
 Using SonarQube Scanner options to only analyze certain files and directories
@@ -50,10 +50,10 @@ Using a different SonarQube Server
 
 Creating a [sonar-project.properties](sonar-project.properties) file inside your project's root directory
 ```sh
-curl -o /home/example/myproject/sonar-project.properties \
+curl -o /home/example/someproject/sonar-project.properties \
   https://raw.githubusercontent.com/luisgros-fixeads/plugin-sonarqube/master/sonar-project.properties
   
-./athena sonarqube scanner /home/example/myproject/
+./athena sonarqube scanner /home/example/someproject/
 ```
 
 #### Resources
