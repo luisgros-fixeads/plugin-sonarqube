@@ -23,25 +23,35 @@ git clone https://github.com/athena-oss/athena.git
 ./athena sonarqube scanner <project-base-directory> [<sonar-scanner-options>]
 ```
 
-#### Examples
-```sh
-# Start SonarQube Server
-./athena sonarqube server start
+#### Example
 
-# Quick scan
-./athena sonarqube scanner ~/myproject/root/dir \
-             -Dsonar.projectKey=my-web-project \ 
-             -Dsonar.sources=vendor/mylibrary/src/file.php,someother/dir/myscript.php
-           
-# Using a different SonarQube Server            
+Start SonarQube Server
+```sh
+./athena sonarqube server start
+```
+
+Quick scan
+```sh
+./athena sonarqube scanner ~/myproject/root/dir
+```
+
+Using SonarQube Scanner options to only analyze certain files and directories
+```sh
 ./athena sonarqube scanner /home/example/myotherproject/ \
-             -Dsonar.projectKey=some-project \ 
-             -Dsonar.sources=vendor/mycode/,vendor/somelib/file.php \
-             -Dsonar.host.url=http://othersonarserver.com:9000
-             
-# If most of the time you use the same SonarQube Scanner options you should consider
-# placing the example file in this plugin "sonar-project.properties" inside 
-# your project base directory and run the scanner
+           -Dsonar.sources=vendor/mycode/script.php, somelib/file.php, web/
+```
+
+Using a different SonarQube Server
+```sh  
+./athena sonarqube scanner /home/example/myotherproject/ \
+           -Dsonar.host.url=http://othersonarserver:9000
+```
+
+Creating a [sonar-project.properties](sonar-project.properties) file inside your project's root directory
+```sh
+curl -o /home/example/myproject/ \
+  https://raw.githubusercontent.com/luisgros-fixeads/plugin-sonarqube/master/sonar-project.properties
+  
 ./athena sonarqube scanner /home/example/myproject/
 ```
 
