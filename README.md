@@ -23,7 +23,7 @@ git clone https://github.com/athena-oss/athena.git
 ./athena sonarqube scanner <project-base-directory> [<sonar-scanner-options>]
 ```
 
-### Example
+#### Examples
 ```sh
 # Start SonarQube Server
 ./athena sonarqube server start
