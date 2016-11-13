@@ -28,7 +28,7 @@ git clone https://github.com/athena-oss/athena.git
 # Start SonarQube Server
 ./athena sonarqube server start
 
-# Quick
+# Quick scan
 ./athena sonarqube scanner ~/myproject/root/dir \
              -Dsonar.projectKey=my-web-project \ 
              -Dsonar.sources=vendor/mylibrary/src/file.php,someother/dir/myscript.php
