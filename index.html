@@ -19,18 +19,18 @@
     </section>
 
     <section class="main-content">
-      <h2>
-<a id="athena-sonarqube-plugin" class="anchor" href="#athena-sonarqube-plugin" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Athena SonarQube Plugin</h2>
+      <h1>
+<a id="athena-sonarqube-plugin" class="anchor" href="#athena-sonarqube-plugin" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Athena SonarQube Plugin</h1>
 
-<p>This plugin tries to simplify the automation of your SonarQube code analysis, it comes
-with SonarQube Server, SonarQube Scanner and 4 plugins (PHP, CSS, Javascript and GitHub) pre-installed to get
-you started.</p>
+<p>This plugin tries to simplify the automation of your <a href="http://docs.sonarqube.org/display/SONAR/Architecture+and+Integration">SonarQube</a> code analysis, it comes
+with SonarQube Server, SonarQube Scanner and 4 plugins (PHP, CSS, Javascript and GitHub) 
+pre-installed to get you started quickly.</p>
 
-<h3>
-<a id="how-to" class="anchor" href="#how-to" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>How to</h3>
+<h2>
+<a id="how-to" class="anchor" href="#how-to" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>How to</h2>
 
-<h4>
-<a id="install-athena" class="anchor" href="#install-athena" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Install Athena</h4>
+<h2>
+<a id="install-athena" class="anchor" href="#install-athena" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Install Athena</h2>
 
 <div class="highlight highlight-source-shell"><pre>brew tap athena-oss/tap
 brew install athena
@@ -39,48 +39,61 @@ git clone https://github.com/athena-oss/athena.git</pre></div>
 
 <p><a href="https://github.com/athena-oss/athena">More info</a></p>
 
-<h4>
-<a id="install-the-sonarqube-plugin" class="anchor" href="#install-the-sonarqube-plugin" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Install the SonarQube plugin</h4>
+<h2>
+<a id="install-the-sonarqube-plugin" class="anchor" href="#install-the-sonarqube-plugin" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Install the SonarQube plugin</h2>
 
 <div class="highlight highlight-source-shell"><pre>./athena plugins install sonarqube git@github.com:luisgros-fixeads/plugin-sonarqube.git</pre></div>
 
-<h4>
-<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Usage</h4>
+<h2>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Usage</h2>
 
 <div class="highlight highlight-source-shell"><pre>./athena sonarqube server <span class="pl-k">&lt;</span>start<span class="pl-k">|</span>stop<span class="pl-k">|</span>restart<span class="pl-k">&gt;</span>
 ./athena sonarqube scanner <span class="pl-k">&lt;</span>project-root-directory<span class="pl-k">&gt;</span> [<span class="pl-k">&lt;</span>sonar-scanner-options<span class="pl-k">&gt;</span>]
 ./athena sonarqube plugins <span class="pl-k">&lt;</span>install<span class="pl-k">|</span>remove<span class="pl-k">&gt;</span> <span class="pl-k">&lt;</span>plugin-jar-url<span class="pl-k">&gt;</span></pre></div>
 
 <h4>
-<a id="examples" class="anchor" href="#examples" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h4>
-
-<p>Starting SonarQube Server</p>
+<a id="start-sonarqube-server" class="anchor" href="#start-sonarqube-server" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Start SonarQube Server</h4>
 
 <div class="highlight highlight-source-shell"><pre>./athena sonarqube server start</pre></div>
 
-<p>Running a scan</p>
+<p>This will provide you with a link to access SonarQube's web interface</p>
+
+<h4>
+<a id="run-code-analysis" class="anchor" href="#run-code-analysis" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Run code analysis</h4>
 
 <div class="highlight highlight-source-shell"><pre>./athena sonarqube scanner <span class="pl-k">~</span>/myproject/</pre></div>
 
-<p>Using SonarQube Scanner options to only analyze certain files and directories</p>
+<p>After that you will be able to access your code analysis report on SonarQube's web interface, sometimes
+reports might take a little bit of time to display depending on the project size, be patient.</p>
+
+<h2>
+<a id="examples" class="anchor" href="#examples" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h2>
+
+<h4>
+<a id="using-sonarqube-scanner-options-to-only-analyze-certain-files-and-directories" class="anchor" href="#using-sonarqube-scanner-options-to-only-analyze-certain-files-and-directories" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Using SonarQube Scanner options to only analyze certain files and directories</h4>
 
 <div class="highlight highlight-source-shell"><pre>./athena sonarqube scanner /home/example/myotherproject/ \
            -Dsonar.sources=vendor/mycode/script.php, somelib/file.php, web/</pre></div>
 
-<p>Using a different SonarQube Server</p>
+<h4>
+<a id="using-a-different-sonarqube-server" class="anchor" href="#using-a-different-sonarqube-server" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Using a different SonarQube Server</h4>
 
 <div class="highlight highlight-source-shell"><pre>./athena sonarqube scanner /home/example/myotherproject/ \
            -Dsonar.host.url=http://othersonarserver:9000
            -Dsonar.sources=vendor/mylib/, public/example.php</pre></div>
 
-<p>Creating a <a href="sonar-project.properties">sonar-project.properties</a> file inside your project's root directory</p>
+<h4>
+<a id="instead-of-passing-scanner-options-creating-a-sonar-projectproperties-file-inside-your-projects-root-directory" class="anchor" href="#instead-of-passing-scanner-options-creating-a-sonar-projectproperties-file-inside-your-projects-root-directory" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Instead of passing scanner options, creating a <a href="sonar-project.properties">sonar-project.properties</a> file inside your project's root directory</h4>
 
-<div class="highlight highlight-source-shell"><pre>curl -o /home/example/someproject/sonar-project.properties \
+<div class="highlight highlight-source-shell"><pre><span class="pl-c"># Use basic example file provided by this plugin as a skeleton</span>
+curl -o /home/example/someproject/sonar-project.properties \
   https://raw.githubusercontent.com/luisgros-fixeads/plugin-sonarqube/master/sonar-project.properties
 
 ./athena sonarqube scanner /home/example/someproject/</pre></div>
 
-<p>Installing and removing <a href="http://docs.sonarqube.org/display/PLUG/Plugin+Library">SonarQube Plugins</a></p>
+<h4>
+<a id="installing-and-removing-sonarqube-plugins" class="anchor" href="#installing-and-removing-sonarqube-plugins" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installing and removing <a href="http://docs.sonarqube.org/display/PLUG/Plugin+Library">SonarQube Plugins</a>
+</h4>
 
 <div class="highlight highlight-source-shell"><pre><span class="pl-c"># http://docs.sonarqube.org/display/PLUG/SWIFT+Plugin#lastVersion</span>
 
@@ -95,7 +108,8 @@ https://sonarsource.bintray.com/CommercialDistribution/sonar-swift-plugin/sonar-
 <span class="pl-c"># Listing installed plugins</span>
 ./athena sonarqube plugins</pre></div>
 
-<p>Athena SonarQube Plugin comes bundled with the following plugins:</p>
+<h4>
+<a id="athena-sonarqube-plugin-comes-bundled-with-the-following-plugins" class="anchor" href="#athena-sonarqube-plugin-comes-bundled-with-the-following-plugins" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Athena SonarQube Plugin comes bundled with the following plugins:</h4>
 
 <ul>
 <li><a href="http://docs.sonarqube.org/display/SCAN/Analyzing+with+SonarQube+Scanner">SonarQube PHP Plugin</a></li>
@@ -104,8 +118,8 @@ https://sonarsource.bintray.com/CommercialDistribution/sonar-swift-plugin/sonar-
 <li><a href="https://github.com/SonarSource/sonar-javascript#readme">SonarQube JavaScript Plugin</a></li>
 </ul>
 
-<h4>
-<a id="resources" class="anchor" href="#resources" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Resources</h4>
+<h2>
+<a id="resources" class="anchor" href="#resources" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Resources</h2>
 
 <p><a href="https://github.com/athena-oss/athena">Athena</a></p>
 
