@@ -1,8 +1,8 @@
 ## Athena SonarQube Plugin
 
 This plugin tries to simplify the automation of your SonarQube code analysis, it comes
-with SonarQube Server, SonarQube Scanner and 4 plugins (PHP, CSS, Javascript and GitHub) pre-installed to get
-you started.
+with SonarQube Server, SonarQube Scanner and 4 plugins (PHP, CSS, Javascript and GitHub) 
+pre-installed to get you started.
 
 ### How to
 

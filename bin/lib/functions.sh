@@ -60,14 +60,14 @@ function athena.plugins.sonarqube.plugins_install()
 	if [ -f $SQ_PLUGIN_JAR ]; then
 		read -p "Plugin $SQ_PLUGIN_NAME already exists, do you want to replace it (Y/n):" yn
 		case $yn in
-		    [Nn]*)
-		        athena.ok 'Nothing to do'
-		        ;;
-	        * )
-	            SQ_PLUGIN_UPDATE=true
-	            athena.plugins.sonarqube.install_plugin
-	            ;;
-        esac
+            [Nn]*)
+            athena.ok 'Nothing to do'
+            ;;
+            * )
+            SQ_PLUGIN_UPDATE=true
+            athena.plugins.sonarqube.install_plugin
+            ;;
+	    esac
     else
 	    athena.plugins.sonarqube.install_plugin
     fi
@@ -86,18 +86,18 @@ function athena.plugins.sonarqube.install_plugin()
 
 		athena.argument.set_arguments restart
 		athena.plugin.run_command server "$(athena.plugin.get_plg_cmd_dir)";
-    else
+	else
 		athena.error "Unable to install plugin $SQ_PLUGIN_NAME"
 	fi
 }
 
 function athena.plugins.sonarqube.plugins_remove()
 {
-    if [ ! -f $SQ_PLUGIN_JAR ]; then
-        athena.error "Plugin $SQ_PLUGIN_NAME is not installed"
+	if [ ! -f $SQ_PLUGIN_JAR ]; then
+		athena.error "Plugin $SQ_PLUGIN_NAME is not installed"
 	elif $(rm "$SQ_PLUGIN_JAR"); then
 		athena.ok "Plugin $SQ_PLUGIN_NAME was removed"
-	    athena.argument.set_arguments restart
+		athena.argument.set_arguments restart
 		athena.plugin.run_command server "$(athena.plugin.get_plg_cmd_dir)";
 	else
 		athena.ok "Unable to remove plugin $SQ_PLUGIN_NAME"
@@ -106,14 +106,14 @@ function athena.plugins.sonarqube.plugins_remove()
 
 function athena.plugins.sonarqube.plugins_list()
 {
-    for plugin in "$SQ_PLUGINS_DIRECTORY"/*.jar
-    do
-      plugins+=$(basename "$plugin\n")
-    done
+	for plugin in "$SQ_PLUGINS_DIRECTORY"/*.jar
+	do
+		plugins+=$(basename "$plugin\n")
+	done
 
-    printf "$(cat <<EOF
-Installed plugins:
-        $plugins
+	printf "$(cat <<EOF
+		Installed plugins:
+		$plugins
 EOF
 )"
 }
