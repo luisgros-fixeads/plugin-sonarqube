@@ -4,9 +4,9 @@ This plugin tries to simplify the automation of your [SonarQube](http://docs.son
 with SonarQube Server, SonarQube Scanner and 4 plugins (PHP, CSS, Javascript and GitHub) 
 pre-installed to get you started quickly.
 
-## How to 
+## Prerequisites
 
-## Install Athena
+#### Install Athena
 ```sh
 brew tap athena-oss/tap
 brew install athena
@@ -15,7 +15,7 @@ git clone https://github.com/athena-oss/athena.git
 ```
 [More info](https://github.com/athena-oss/athena)
 
-## Install the SonarQube plugin
+#### Install the SonarQube plugin
 ```sh
 ./athena plugins install sonarqube git@github.com:luisgros-fixeads/plugin-sonarqube.git
 ```
