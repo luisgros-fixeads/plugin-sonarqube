@@ -4,9 +4,26 @@ This plugin tries to simplify the automation of your [SonarQube](http://docs.son
 with SonarQube Server, SonarQube Scanner and 4 plugins (PHP, CSS, Javascript and GitHub) 
 pre-installed to get you started quickly.
 
-## Prerequisites
+## Table of content
 
-#### Install Athena
+- [Installation](#installation)
+    - [Athena](#install-athena)
+    - [Athena SonarQube Plugin](#install-the-sonarqube-plugin)
+- [Usage](#usage)
+    - [Commands](#commands)
+    - [Start SonarQube Server](#start-the-sonarqube-server)
+    - [Run code analysis](#run-a-code-analysis)
+- [Examples](#examples)
+    - [Using SonarQube Scanner CLI options](#using-sonarqube-scanner-options-to-only-analyze-certain-files-and-directories)
+    - [Using a different SonarQube Server](#using-a-different-sonarqube-server)
+    - [Installing, removing and listing SonarQube Plugins](#installing-and-removing-sonarqube-plugins)
+- [Plugins Bundled](#athena-sonarqube-plugin-comes-bundled-with-the-following-plugins)
+- [Resources](#resources)
+
+## Installation
+
+### Prerequisites
+##### Install Athena
 ```sh
 brew tap athena-oss/tap
 brew install athena
@@ -22,6 +39,7 @@ git clone https://github.com/athena-oss/athena.git
 
 ## Usage
 
+#### Commands
 ```sh
 ./athena sonarqube server <start|stop|restart>
 ./athena sonarqube scanner <project-root-directory> [<sonar-scanner-options>]
@@ -80,7 +98,7 @@ https://sonarsource.bintray.com/CommercialDistribution/sonar-swift-plugin/sonar-
 ./athena sonarqube plugins
 ```
 
-#### Athena SonarQube Plugin comes bundled with the following plugins:
+### Athena SonarQube Plugin comes bundled with the following plugins:
 * [SonarQube PHP Plugin](http://docs.sonarqube.org/display/SCAN/Analyzing+with+SonarQube+Scanner)
 * [SonarQube GitHub Plugin](http://docs.sonarqube.org/display/PLUG/GitHub+Plugin)
 * [SonarQube CSS/Less Plugin](https://github.com/racodond/sonar-css-plugin#readme)
