@@ -1,2 +1,4 @@
 .idea/*
 athena.lock
+docker/server/data
+docker/server/plugins
