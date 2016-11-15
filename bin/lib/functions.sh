@@ -7,8 +7,8 @@ function athena.plugins.sonarqube.server_start()
 		athena.plugin.use_container server
 		athena.docker.add_option "-p 9000:9000 -p 9092:9092"
 		athena.docker.add_daemon
-		athena.docker.mount_dir $SQ_PLUGINS_DIRECTORY $SQ_SERVER_PLUGINS
-		athena.docker.mount_dir $SQ_DATA_DIRECTORY $SQ_SERVER_DATA
+		athena.docker.mount_dir "$SQ_PLUGINS_DIRECTORY" "$SQ_SERVER_PLUGINS"
+		athena.docker.mount_dir "$SQ_DATA_DIRECTORY" "$SQ_SERVER_DATA"
 		athena.docker.set_no_default_router 1
 	fi
 }
@@ -42,7 +42,7 @@ function athena.plugins.sonarqube.scanner()
 	athena.argument.prepend_to_arguments "-Dsonar.sources=$PROJECT_BASE_DIR"
 
 	athena.plugin.use_container scanner
-	athena.docker.mount $PROJECT_BASE_DIR $PROJECT_BASE_DIR
+	athena.docker.mount "$PROJECT_BASE_DIR" "$PROJECT_BASE_DIR"
 	athena.docker.set_no_default_router 1
 }
 
@@ -85,7 +85,7 @@ function athena.plugins.sonarqube.install_plugin()
 		fi
 
 		athena.argument.set_arguments restart
-		athena.plugin.run_command server $(athena.plugin.get_plg_cmd_dir);
+		athena.plugin.run_command server "$(athena.plugin.get_plg_cmd_dir)";
     else
 		athena.error "Unable to install plugin $SQ_PLUGIN_NAME"
 	fi
@@ -98,7 +98,7 @@ function athena.plugins.sonarqube.plugins_remove()
 	elif $(rm "$SQ_PLUGIN_JAR"); then
 		athena.ok "Plugin $SQ_PLUGIN_NAME was removed"
 	    athena.argument.set_arguments restart
-		athena.plugin.run_command server $(athena.plugin.get_plg_cmd_dir);
+		athena.plugin.run_command server "$(athena.plugin.get_plg_cmd_dir)";
 	else
 		athena.ok "Unable to remove plugin $SQ_PLUGIN_NAME"
 	fi
@@ -106,7 +106,7 @@ function athena.plugins.sonarqube.plugins_remove()
 
 function athena.plugins.sonarqube.plugins_list()
 {
-    for plugin in "$SQ_PLUGINS_DIRECTORY"/*
+    for plugin in "$SQ_PLUGINS_DIRECTORY"/*.jar
     do
       plugins+=$(basename "$plugin\n")
     done
