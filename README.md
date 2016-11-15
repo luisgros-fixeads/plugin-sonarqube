@@ -47,14 +47,14 @@ git clone https://github.com/athena-oss/athena.git
 ```sh
 ./athena sonarqube server start
 ```
-This will provide you with a link to access SonarQube web interface
+This will provide you with a link to access your SonarQube web interface
 
 #### Run a code analysis
 ```sh
 ./athena sonarqube scanner ~/myproject/
 ``` 
 After that you will be able to access your code analysis report on SonarQube web interface, sometimes
-reports might take a little bit of time to display depending on the project size, be patient.
+reports might take a little bit of time to display on the web interface depending on the project size, be patient.
 
 ## Examples
 
