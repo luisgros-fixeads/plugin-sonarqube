@@ -2,7 +2,7 @@
 
 This plugin tries to simplify the automation of your [SonarQube](http://docs.sonarqube.org/display/SONAR/Architecture+and+Integration) code analysis, it comes
 with SonarQube Server, SonarQube Scanner and 4 plugins (PHP, CSS, Javascript and GitHub) 
-pre-installed to get you started.
+pre-installed to get you started quickly.
 
 ## How to 
 
