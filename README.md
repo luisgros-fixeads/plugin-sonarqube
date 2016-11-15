@@ -1,6 +1,6 @@
 ## Athena SonarQube Plugin
 
-This plugin tries to simplify the automation of your SonarQube code analysis, it comes
+This plugin tries to simplify the automation of your [SonarQube](http://docs.sonarqube.org/display/SONAR/Architecture+and+Integration) code analysis, it comes
 with SonarQube Server, SonarQube Scanner and 4 plugins (PHP, CSS, Javascript and GitHub) 
 pre-installed to get you started.
 
@@ -30,31 +30,35 @@ git clone https://github.com/athena-oss/athena.git
 
 #### Examples
 
-Starting SonarQube Server
+##### Starting SonarQube Server
 ```sh
 ./athena sonarqube server start
 ```
+This will provide you with a link to access SonarQube's web interface
 
-Running a scan
+##### Running a code analysis
 ```sh
 ./athena sonarqube scanner ~/myproject/
 ```
+After you will be able to access results on SonarQube's web interface, sometimes
+results might take a little bit to display depending on project size, so, be patient.
 
-Using SonarQube Scanner options to only analyze certain files and directories
+##### Using SonarQube Scanner options to only analyze certain files and directories
 ```sh
 ./athena sonarqube scanner /home/example/myotherproject/ \
            -Dsonar.sources=vendor/mycode/script.php, somelib/file.php, web/
 ```
 
-Using a different SonarQube Server
+##### Using a different SonarQube Server
 ```sh  
 ./athena sonarqube scanner /home/example/myotherproject/ \
            -Dsonar.host.url=http://othersonarserver:9000
            -Dsonar.sources=vendor/mylib/, public/example.php
 ```
 
-Creating a [sonar-project.properties](sonar-project.properties) file inside your project's root directory
+Instead of passing scanner options you can create a [sonar-project.properties](sonar-project.properties) file inside your project's root directory
 ```sh
+# Use basic example file provided by this plugin as a skeleton
 curl -o /home/example/someproject/sonar-project.properties \
   https://raw.githubusercontent.com/luisgros-fixeads/plugin-sonarqube/master/sonar-project.properties
   
