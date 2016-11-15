@@ -19,9 +19,7 @@
     </section>
 
     <section class="main-content">
-      <p><a href="https://luisgros-fixeads.github.io/plugin-sonarqube/"><img src="https://tedvinke.files.wordpress.com/2016/03/sonarqube_logo_720.png?w=300" alt="Athena SonarQube Plugin"></a></p>
-
-<h1>
+      <h1>
 <a id="athena-sonarqube-plugin" class="anchor" href="#athena-sonarqube-plugin" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Athena SonarQube Plugin</h1>
 
 <p>This plugin tries to simplify the automation of your <a href="http://docs.sonarqube.org/display/SONAR/Architecture+and+Integration">SonarQube</a> code analysis, it comes
@@ -95,7 +93,7 @@ git clone https://github.com/athena-oss/athena.git</pre></div>
 
 <div class="highlight highlight-source-shell"><pre>./athena sonarqube server start</pre></div>
 
-<p>This will provide you with a link to access SonarQube web interface</p>
+<p>This will provide you with a link to access your SonarQube web interface</p>
 
 <h4>
 <a id="run-a-code-analysis" class="anchor" href="#run-a-code-analysis" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Run a code analysis</h4>
@@ -103,7 +101,7 @@ git clone https://github.com/athena-oss/athena.git</pre></div>
 <div class="highlight highlight-source-shell"><pre>./athena sonarqube scanner <span class="pl-k">~</span>/myproject/</pre></div>
 
 <p>After that you will be able to access your code analysis report on SonarQube web interface, sometimes
-reports might take a little bit of time to display depending on the project size, be patient.</p>
+reports might take a little bit of time to display on the web interface depending on the project size, be patient.</p>
 
 <h2>
 <a id="examples" class="anchor" href="#examples" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h2>
@@ -136,9 +134,11 @@ curl -o /home/example/someproject/sonar-project.properties \
 
 <div class="highlight highlight-source-shell"><pre><span class="pl-c"># http://docs.sonarqube.org/display/PLUG/SWIFT+Plugin#lastVersion</span>
 
+<span class="pl-c"># Installing</span>
 ./athena sonarqube plugins install \
 https://sonarsource.bintray.com/CommercialDistribution/sonar-swift-plugin/sonar-swift-plugin-1.7.jar
 
+<span class="pl-c"># Removing</span>
 ./athena sonarqube plugins remove \
 https://sonarsource.bintray.com/CommercialDistribution/sonar-swift-plugin/sonar-swift-plugin-1.7.jar
 <span class="pl-c"># or</span>
