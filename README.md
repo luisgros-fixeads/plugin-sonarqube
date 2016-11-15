@@ -1,5 +1,3 @@
-[![Athena SonarQube Plugin](https://tedvinke.files.wordpress.com/2016/03/sonarqube_logo_720.png?w=300)](https://luisgros-fixeads.github.io/plugin-sonarqube/)
-
 # Athena SonarQube Plugin
 
 This plugin tries to simplify the automation of your [SonarQube](http://docs.sonarqube.org/display/SONAR/Architecture+and+Integration) code analysis, it comes
