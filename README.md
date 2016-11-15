@@ -1,3 +1,5 @@
+[![Athena SonarQube Plugin](https://tedvinke.files.wordpress.com/2016/03/sonarqube_logo_720.png?w=300)](https://luisgros-fixeads.github.io/plugin-sonarqube/)
+
 # Athena SonarQube Plugin
 
 This plugin tries to simplify the automation of your [SonarQube](http://docs.sonarqube.org/display/SONAR/Architecture+and+Integration) code analysis, it comes
@@ -8,7 +10,7 @@ pre-installed to get you started quickly.
 
 - [Installation](#installation)
     - [Athena](#install-athena)
-    - [Athena SonarQube Plugin](#install-the-sonarqube-plugin)
+    - [SonarQube Plugin](#install-the-sonarqube-plugin)
 - [Usage](#usage)
     - [Commands](#commands)
     - [Start SonarQube Server](#start-the-sonarqube-server)
@@ -16,6 +18,7 @@ pre-installed to get you started quickly.
 - [Examples](#examples)
     - [Using SonarQube Scanner CLI options](#using-sonarqube-scanner-options-to-only-analyze-certain-files-and-directories)
     - [Using a different SonarQube Server](#using-a-different-sonarqube-server)
+    - [Using a sonar-project.properties file](#instead-of-passing-scanner-options-creating-a-sonar-project-properties-file-inside-your-projects-root-directory)
     - [Installing, removing and listing SonarQube Plugins](#installing-and-removing-sonarqube-plugins)
 - [Plugins](#plugins)
     - [Bundled plugins](#using-sonarqube-scanner-options-to-only-analyze-certain-files-and-directories)
@@ -98,7 +101,7 @@ https://sonarsource.bintray.com/CommercialDistribution/sonar-swift-plugin/sonar-
 ```
 
 ## Plugins
-#### Athena SonarQube Plugin comes bundled with the following plugins:
+Athena SonarQube Plugin comes bundled with the following plugins:
 * [SonarQube PHP Plugin](http://docs.sonarqube.org/display/SCAN/Analyzing+with+SonarQube+Scanner)
 * [SonarQube GitHub Plugin](http://docs.sonarqube.org/display/PLUG/GitHub+Plugin)
 * [SonarQube CSS/Less Plugin](https://github.com/racodond/sonar-css-plugin#readme)
