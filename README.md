@@ -18,10 +18,9 @@ pre-installed to get you started quickly.
 - [Examples](#examples)
     - [Using SonarQube Scanner CLI options](#using-sonarqube-scanner-options-to-only-analyze-certain-files-and-directories)
     - [Using a different SonarQube Server](#using-a-different-sonarqube-server)
-    - [Using a sonar-project.properties file](#instead-of-passing-scanner-options-creating-a-sonar-project-properties-file-inside-your-projects-root-directory)
     - [Installing, removing and listing SonarQube Plugins](#installing-and-removing-sonarqube-plugins)
 - [Plugins](#plugins)
-    - [Bundled plugins](#using-sonarqube-scanner-options-to-only-analyze-certain-files-and-directories)
+    - [Bundled plugins](#athena-sonarqube-plugin-comes-bundled-with-the-following-plugins)
 - [Resources](#resources)
 
 ## Installation
