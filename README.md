@@ -84,9 +84,11 @@ curl -o /home/example/someproject/sonar-project.properties \
 ```sh
 # http://docs.sonarqube.org/display/PLUG/SWIFT+Plugin#lastVersion
 
+# Installing
 ./athena sonarqube plugins install \
 https://sonarsource.bintray.com/CommercialDistribution/sonar-swift-plugin/sonar-swift-plugin-1.7.jar
 
+# Removing
 ./athena sonarqube plugins remove \
 https://sonarsource.bintray.com/CommercialDistribution/sonar-swift-plugin/sonar-swift-plugin-1.7.jar
 # or
