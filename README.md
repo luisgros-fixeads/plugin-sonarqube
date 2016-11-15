@@ -55,7 +55,7 @@ reports might take a little bit of time to display depending on the project size
            -Dsonar.sources=vendor/mylib/, public/example.php
 ```
 
-#### Instead of passing scanner options, creating a [sonar-project.properties](sonar-project.properties) file inside your project's root directory
+#### Instead of passing scanner options, creating a [sonar-project.properties](https://raw.githubusercontent.com/luisgros-fixeads/plugin-sonarqube/master/sonar-project.properties) file inside your project's root directory
 ```sh
 # Use basic example file provided by this plugin as a skeleton
 curl -o /home/example/someproject/sonar-project.properties \
