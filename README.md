@@ -20,7 +20,6 @@ pre-installed to get you started quickly.
     - [Using a different SonarQube Server](#using-a-different-sonarqube-server)
     - [Installing, removing and listing SonarQube Plugins](#installing-and-removing-sonarqube-plugins)
 - [Plugins](#plugins)
-    - [Bundled plugins](#athena-sonarqube-plugin-comes-bundled-with-the-following-plugins)
 - [Resources](#resources)
 
 ## Installation
