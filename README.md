@@ -17,12 +17,11 @@ pre-installed to get you started quickly.
     - [Using SonarQube Scanner CLI options](#using-sonarqube-scanner-options-to-only-analyze-certain-files-and-directories)
     - [Using a different SonarQube Server](#using-a-different-sonarqube-server)
     - [Installing, removing and listing SonarQube Plugins](#installing-and-removing-sonarqube-plugins)
-- [Plugins Bundled](#athena-sonarqube-plugin-comes-bundled-with-the-following-plugins)
+- [Plugins](#plugins)
+    - [Bundled plugins](#using-sonarqube-scanner-options-to-only-analyze-certain-files-and-directories)
 - [Resources](#resources)
 
 ## Installation
-
-### Prerequisites
 ##### Install Athena
 ```sh
 brew tap athena-oss/tap
@@ -98,7 +97,8 @@ https://sonarsource.bintray.com/CommercialDistribution/sonar-swift-plugin/sonar-
 ./athena sonarqube plugins
 ```
 
-### Athena SonarQube Plugin comes bundled with the following plugins:
+## Plugins
+#### Athena SonarQube Plugin comes bundled with the following plugins:
 * [SonarQube PHP Plugin](http://docs.sonarqube.org/display/SCAN/Analyzing+with+SonarQube+Scanner)
 * [SonarQube GitHub Plugin](http://docs.sonarqube.org/display/PLUG/GitHub+Plugin)
 * [SonarQube CSS/Less Plugin](https://github.com/racodond/sonar-css-plugin#readme)
