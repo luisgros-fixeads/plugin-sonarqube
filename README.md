@@ -25,7 +25,7 @@ pre-installed to get you started quickly.
 - [Resources](#resources)
 
 ## Installation
-##### Install Athena
+#### Install Athena
 ```sh
 brew tap athena-oss/tap
 brew install athena
