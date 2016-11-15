@@ -1,19 +1,17 @@
-if [ $option != 'stop' ]; then
-	time=1
-	timeout=30
-
+if [ $SQ_SERVER_OPT != stop ]; then
+    SQ_SERVER_TIMEOUT=0
 	SQ_SERVER_IP=$(athena.docker.get_ip_for_container "$SQ_SERVER_CONTAINER")
 
-	until $(curl --silent --head --fail --output /dev/null http://$SQ_SERVER_IP:9000) || [ $time -ge $timeout ]; do
+	until $(curl -sfIo /dev/null http://$SQ_SERVER_IP:9000) || [ $SQ_SERVER_TIMEOUT -ge 30 ]; do
 		printf '.'
 		sleep 1
-		((time++))
+		((SQ_SERVER_TIMEOUT++))
 	done
 
-	if [ $time -lt $timeout ]; then
-		printf "\n"
-		athena.ok "SonarQube Server is running"
-		athena.ok "http://$SQ_SERVER_IP:9000"
+    printf "\n"
+
+	if [ $SQ_SERVER_TIMEOUT -lt 30 ]; then
+		athena.ok "SonarQube Server is running \n     http://$SQ_SERVER_IP:9000 \n"
 	else
 		athena.error "Unable to start SonarQube Server"
 	fi

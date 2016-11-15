@@ -2,15 +2,14 @@ CMD_DESCRIPTION="SonarQube Server"
 
 athena.usage 1 "<start|stop|restart>"
 
-# arguments are found below
-option="$(athena.arg 1)"
+SQ_SERVER_OPT="$(athena.arg 1)"
 
 athena.pop_args 1
 
-if [ $option = "start" ]; then
+if [ $SQ_SERVER_OPT = "start" ]; then
 	athena.plugins.sonarqube.server_start
-elif [ $option = "stop" ]; then
+elif [ $SQ_SERVER_OPT = "stop" ]; then
 	athena.plugins.sonarqube.server_stop
-elif [ $option = "restart" ]; then
+elif [ $SQ_SERVER_OPT = "restart" ]; then
 	athena.plugins.sonarqube.server_restart
 fi

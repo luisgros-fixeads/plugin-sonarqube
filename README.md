@@ -1,12 +1,16 @@
 ## Athena SonarQube Plugin
 
+This plugin tries to simplify the automation of your SonarQube code analysis, it comes
+with SonarQube Server, SonarQube Scanner and 4 plugins (PHP, CSS, Javascript and GitHub) pre-installed to get
+you started.
+
 ### How to
 
 #### Install Athena
 ```sh
 brew tap athena-oss/tap
 brew install athena
-# Or
+# or
 git clone https://github.com/athena-oss/athena.git
 ```
 [More info](https://github.com/athena-oss/athena)
@@ -20,10 +24,11 @@ git clone https://github.com/athena-oss/athena.git
 
 ```sh
 ./athena sonarqube server <start|stop|restart>
-./athena sonarqube scanner <project-base-directory> [<sonar-scanner-options>]
+./athena sonarqube scanner <project-root-directory> [<sonar-scanner-options>]
+./athena sonarqube plugins <install|remove> <plugin-jar-url>
 ```
 
-#### Example
+#### Examples
 
 Starting SonarQube Server
 ```sh
@@ -45,7 +50,7 @@ Using a different SonarQube Server
 ```sh  
 ./athena sonarqube scanner /home/example/myotherproject/ \
            -Dsonar.host.url=http://othersonarserver:9000
-           -Dsonar.sources=vendor/mylib/, pubic/example.php
+           -Dsonar.sources=vendor/mylib/, public/example.php
 ```
 
 Creating a [sonar-project.properties](sonar-project.properties) file inside your project's root directory
@@ -56,6 +61,28 @@ curl -o /home/example/someproject/sonar-project.properties \
 ./athena sonarqube scanner /home/example/someproject/
 ```
 
+Installing and removing [SonarQube Plugins](http://docs.sonarqube.org/display/PLUG/Plugin+Library)
+```sh
+# http://docs.sonarqube.org/display/PLUG/SWIFT+Plugin#lastVersion
+
+./athena sonarqube plugins install \
+https://sonarsource.bintray.com/CommercialDistribution/sonar-swift-plugin/sonar-swift-plugin-1.7.jar
+
+./athena sonarqube plugins remove \
+https://sonarsource.bintray.com/CommercialDistribution/sonar-swift-plugin/sonar-swift-plugin-1.7.jar
+# or
+./athena sonarqube plugins remove sonar-swift-plugin-1.7.jar
+
+# Listing installed plugins
+./athena sonarqube plugins
+```
+
+Athena SonarQube Plugin comes bundled with the following plugins:
+* [SonarQube PHP Plugin](http://docs.sonarqube.org/display/SCAN/Analyzing+with+SonarQube+Scanner)
+* [SonarQube GitHub Plugin](http://docs.sonarqube.org/display/PLUG/GitHub+Plugin)
+* [SonarQube CSS/Less Plugin](https://github.com/racodond/sonar-css-plugin#readme)
+* [SonarQube JavaScript Plugin](https://github.com/SonarSource/sonar-javascript#readme)
+
 #### Resources
 
 [Athena](https://github.com/athena-oss/athena)
@@ -64,6 +91,4 @@ curl -o /home/example/someproject/sonar-project.properties \
 
 [Analyzing with SonarQube Scanner](http://docs.sonarqube.org/display/SCAN/Analyzing+with+SonarQube+Scanner)
 
-[SonarQube PHP Plugin](http://docs.sonarqube.org/display/SCAN/Analyzing+with+SonarQube+Scanner)
-
-[SonarQube GitHub Plugin](http://docs.sonarqube.org/display/PLUG/GitHub+Plugin)
+[SonarQube Plugin Library](http://docs.sonarqube.org/display/PLUG/Plugin+Library)
