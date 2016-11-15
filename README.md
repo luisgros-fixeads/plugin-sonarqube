@@ -27,17 +27,17 @@ git clone https://github.com/athena-oss/athena.git
 ./athena sonarqube scanner <project-root-directory> [<sonar-scanner-options>]
 ./athena sonarqube plugins <install|remove> <plugin-jar-url>
 ```
-#### Start SonarQube Server
+#### Start the SonarQube Server
 ```sh
 ./athena sonarqube server start
 ```
-This will provide you with a link to access SonarQube's web interface
+This will provide you with a link to access SonarQube web interface
 
-#### Run code analysis
+#### Run a code analysis
 ```sh
 ./athena sonarqube scanner ~/myproject/
 ``` 
-After that you will be able to access your code analysis report on SonarQube's web interface, sometimes
+After that you will be able to access your code analysis report on SonarQube web interface, sometimes
 reports might take a little bit of time to display depending on the project size, be patient.
 
 ## Examples
