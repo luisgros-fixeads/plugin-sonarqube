@@ -45,6 +45,7 @@ pre-installed to get you started quickly.</p>
 <li><a href="#commands">Commands</a></li>
 <li><a href="#start-the-sonarqube-server">Start SonarQube Server</a></li>
 <li><a href="#run-a-code-analysis">Run code analysis</a></li>
+<li><a href="#run-a-code-analysis">Quick analysis with SonarLint CLI</a></li>
 </ul>
 </li>
 <li>
@@ -53,11 +54,20 @@ pre-installed to get you started quickly.</p>
 <ul>
 <li><a href="#using-sonarqube-scanner-options-to-only-analyze-certain-files-and-directories">Using SonarQube Scanner CLI options</a></li>
 <li><a href="#using-a-different-sonarqube-server">Using a different SonarQube Server</a></li>
+<li><a href="#using-sonarlint-cli-to-perform-a-quick-code-analysis-of-all-php-files-in-a-directory">Using SonarLint and excluding files</a></li>
 <li><a href="#installing-and-removing-sonarqube-plugins">Installing, removing and listing SonarQube Plugins</a></li>
 </ul>
 </li>
 <li><a href="#plugins">Plugins</a></li>
-<li><a href="#resources">Resources</a></li>
+<li>
+<a href="#plugins">CLI Options Reference</a>
+
+<ul>
+<li><a href="#sonarqube-scanner-options">SonarQube Scanner options</a></li>
+<li><a href="#sonarlint-cli-options">SonarLint CLI options</a></li>
+</ul>
+</li>
+<li><a href="#cli-options-reference">Resources</a></li>
 </ul>
 
 <h2>
@@ -86,6 +96,7 @@ git clone https://github.com/athena-oss/athena.git</pre></div>
 
 <div class="highlight highlight-source-shell"><pre>./athena sonarqube server <span class="pl-k">&lt;</span>start<span class="pl-k">|</span>stop<span class="pl-k">|</span>restart<span class="pl-k">&gt;</span>
 ./athena sonarqube scanner <span class="pl-k">&lt;</span>project-root-directory<span class="pl-k">&gt;</span> [<span class="pl-k">&lt;</span>sonar-scanner-options<span class="pl-k">&gt;</span>]
+./athena sonarqube sonarlint <span class="pl-k">&lt;</span>project-root-directory<span class="pl-k">&gt;</span> [<span class="pl-k">&lt;</span>sonarlint-cli-options<span class="pl-k">&gt;</span>]
 ./athena sonarqube plugins <span class="pl-k">&lt;</span>install<span class="pl-k">|</span>remove<span class="pl-k">&gt;</span> <span class="pl-k">&lt;</span>plugin-jar-url<span class="pl-k">&gt;</span></pre></div>
 
 <h4>
@@ -102,6 +113,14 @@ git clone https://github.com/athena-oss/athena.git</pre></div>
 
 <p>After that you will be able to access your code analysis report on SonarQube web interface, sometimes
 reports might take a little bit of time to display on the web interface depending on the project size, be patient.</p>
+
+<h4>
+<a id="quick-analysis-with-sonarlint-cli" class="anchor" href="#quick-analysis-with-sonarlint-cli" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Quick analysis with <a href="http://www.sonarlint.org/commandline/index.html">SonarLint CLI</a>
+</h4>
+
+<div class="highlight highlight-source-shell"><pre>./athena sonarqube sonarlint <span class="pl-k">~</span>/myproject/</pre></div>
+
+<p>Unlike running code analysis with the SonarQube scanner when using SonarLint you don't need to start the SonarQube Server. After the SonarLint code analysis by default an html report file with be generated inside your project's root directory.</p>
 
 <h2>
 <a id="examples" class="anchor" href="#examples" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h2>
@@ -127,6 +146,11 @@ curl -o /home/example/someproject/sonar-project.properties \
   https://raw.githubusercontent.com/luisgros-fixeads/plugin-sonarqube/master/sonar-project.properties
 
 ./athena sonarqube scanner /home/example/someproject/</pre></div>
+
+<h4>
+<a id="using-sonarlint-cli-to-perform-a-quick-code-analysis-of-all-php-files-in-a-directory" class="anchor" href="#using-sonarlint-cli-to-perform-a-quick-code-analysis-of-all-php-files-in-a-directory" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Using <a href="http://www.sonarlint.org/commandline/index.html">SonarLint CLI</a> to perform a quick code analysis of all php files in a directory</h4>
+
+<div class="highlight highlight-source-shell"><pre>./athena sonarqube scanner /home/example/someproject/ --src public/<span class="pl-k">*</span>.php</pre></div>
 
 <h4>
 <a id="installing-and-removing-sonarqube-plugins" class="anchor" href="#installing-and-removing-sonarqube-plugins" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installing and removing <a href="http://docs.sonarqube.org/display/PLUG/Plugin+Library">SonarQube Plugins</a>
@@ -158,6 +182,41 @@ https://sonarsource.bintray.com/CommercialDistribution/sonar-swift-plugin/sonar-
 <li><a href="https://github.com/racodond/sonar-css-plugin#readme">SonarQube CSS/Less Plugin</a></li>
 <li><a href="https://github.com/SonarSource/sonar-javascript#readme">SonarQube JavaScript Plugin</a></li>
 </ul>
+
+<h2>
+<a id="cli-options-reference" class="anchor" href="#cli-options-reference" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>CLI Options Reference</h2>
+
+<h4>
+<a id="sonarqube-scanner-options" class="anchor" href="#sonarqube-scanner-options" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>SonarQube Scanner options</h4>
+
+<div class="highlight highlight-source-shell"><pre>INFO: usage: sonar-scanner [options]
+INFO: 
+INFO: Options:
+INFO:  -D,--define <span class="pl-k">&lt;</span>arg<span class="pl-k">&gt;</span>     Define property
+INFO:  -h,--help             Display <span class="pl-c1">help</span> information
+INFO:  -v,--version          Display version information
+INFO:  -X,--debug            Produce execution debug output
+INFO:  -i,--interactive      Run interactively</pre></div>
+
+<h4>
+<a id="sonarlint-cli-options" class="anchor" href="#sonarlint-cli-options" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>SonarLint CLI options</h4>
+
+<div class="highlight highlight-source-shell"><pre>INFO: usage: sonarlint [options]
+INFO: 
+INFO: Options:
+INFO:  -u,--update              Update binding with SonarQube server before analysis
+INFO:  -D,--define <span class="pl-k">&lt;</span>arg<span class="pl-k">&gt;</span>        Define property
+INFO:  -e,--errors              Produce execution error messages
+INFO:  -h,--help                Display <span class="pl-c1">help</span> information
+INFO:  -v,--version             Display version information
+INFO:  -X,--debug               Produce execution debug output
+INFO:  -i,--interactive         Run interactively
+INFO:  --html-report <span class="pl-k">&lt;</span>path<span class="pl-k">&gt;</span>     HTML report output path (relative or absolute)
+INFO:  --src <span class="pl-k">&lt;</span>glob pattern<span class="pl-k">&gt;</span>     GLOB pattern to identify <span class="pl-c1">source</span> files
+INFO:  --tests <span class="pl-k">&lt;</span>glob pattern<span class="pl-k">&gt;</span>   GLOB pattern to identify <span class="pl-c1">test</span> files
+INFO:  --exclude <span class="pl-k">&lt;</span>glob pattern<span class="pl-k">&gt;</span> GLOB pattern to exclude files
+INFO:  --charset <span class="pl-k">&lt;</span>name<span class="pl-k">&gt;</span>         Character encoding of the <span class="pl-c1">source</span> files
+</pre></div>
 
 <h2>
 <a id="resources" class="anchor" href="#resources" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Resources</h2>
