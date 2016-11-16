@@ -137,6 +137,7 @@ Options:
 ```
 Some of the properties that can be defined (**-D**) for SonarQube Scanner 
 ```php
+sonar.host.url=http://thesonarserver:9000
 sonar.projectKey=athena-sonarqube-plugin
 sonar.projectName=Athena SonarQube Plugin
 sonar.projectVersion=1.0.0
