@@ -29,20 +29,33 @@ function athena.plugins.sonarqube.server_restart()
 	athena.plugins.sonarqube.server_start
 }
 
+function athena.plugins.sonarqube.server_is_running()
+{
+	if ! $(athena.docker.is_container_running "$SQ_SERVER_CONTAINER"); then
+		athena.error "SonarQube Server is not running"
+		return 1
+	fi
+	return 0
+}
+
 function athena.plugins.sonarqube.scanner()
 {
-	athena.argument.get_argument_and_remove 1 PROJECT_BASE_DIR
+	if ! $(athena.plugins.sonarqube.server_is_running); then
+		return 1;
+	fi
 
-	PROJECT_BASE_DIR=$(athena.fs.get_full_path "$PROJECT_BASE_DIR")
+	athena.argument.get_argument_and_remove 1 PROJECT_ROOT_DIR
+
+	PROJECT_ROOT_DIR=$(athena.fs.get_full_path "$PROJECT_ROOT_DIR")
 	SQ_SERVER_IP=$(athena.docker.get_ip_for_container "$SQ_SERVER_CONTAINER")
 
 	athena.argument.prepend_to_arguments "-Dsonar.host.url=http://$SQ_SERVER_IP:9000"
-	athena.argument.prepend_to_arguments "-Dsonar.projectBaseDir=$PROJECT_BASE_DIR"
+	athena.argument.prepend_to_arguments "-Dsonar.projectBaseDir=$PROJECT_ROOT_DIR"
 	athena.argument.prepend_to_arguments "-Dsonar.projectKey=athena-sonarqube-project"
-	athena.argument.prepend_to_arguments "-Dsonar.sources=$PROJECT_BASE_DIR"
+	athena.argument.prepend_to_arguments "-Dsonar.sources=$PROJECT_ROOT_DIR"
 
 	athena.plugin.use_container scanner
-	athena.docker.mount "$PROJECT_BASE_DIR" "$PROJECT_BASE_DIR"
+	athena.docker.mount "$PROJECT_ROOT_DIR" "$PROJECT_ROOT_DIR"
 	athena.docker.set_no_default_router 1
 }
 
@@ -68,9 +81,9 @@ function athena.plugins.sonarqube.plugins_install()
             athena.plugins.sonarqube.install_plugin
             ;;
 	    esac
-    else
-	    athena.plugins.sonarqube.install_plugin
-    fi
+	else
+		athena.plugins.sonarqube.install_plugin
+	fi
 }
 
 function athena.plugins.sonarqube.install_plugin()
@@ -115,5 +128,55 @@ function athena.plugins.sonarqube.plugins_list()
 		Installed plugins:
 		$plugins
 EOF
-)"
+	)"
+}
+
+function athena.plugins.sonarqube.sonarlint()
+{
+	athena.argument.get_argument_and_remove 1 PROJECT_ROOT_DIR
+
+	PROJECT_ROOT_DIR=$(athena.fs.get_full_path "$PROJECT_ROOT_DIR")
+
+	if ! $(athena.argument.argument_exists "--html-report"); then
+		athena.argument.append_to_arguments "--html-report $PROJECT_ROOT_DIR/sonarlint-report.html"
+	fi
+
+	athena.info "Running SonarLint"
+	athena.plugin.use_container sonarlint
+	athena.docker.add_autoremove
+	athena.docker.mount_dir "$PROJECT_ROOT_DIR" "$PROJECT_ROOT_DIR"
+	athena.docker.add_option "-w $PROJECT_ROOT_DIR"
+	athena.docker.set_no_default_router 1
+}
+
+function athena.plugins.sonarqube.sonarlint_handle_config_files()
+{
+	if ! $(athena.docker.is_container_running "$SQ_SERVER_CONTAINER"); then
+	    return
+	fi
+
+    SQ_SERVER_IP=$(athena.docker.get_ip_for_container "$SQ_SERVER_CONTAINER")
+
+	cat <<EOF > $SQ_SONARLINT_DOCKERFILE/global.json
+	{
+		servers: [
+		{
+			"id": "local",
+			"url": "http://$SQ_SERVER_IP:9000"
+		}
+		]
+	}
+EOF
+
+	if [ ! -f "$PROJECT_ROOT_DIR/sonarlint.json" ]; then
+		cat <<EOF > $SQ_SONARLINT_DOCKERFILE/sonarlint.json
+		{
+			"serverId": "local",
+			"projectKey": "athena-sonarqube-project"
+		}
+EOF
+		athena.docker.mount "$SQ_SONARLINT_DOCKERFILE/sonarlint.json" "$PROJECT_ROOT_DIR/sonarlint.json"
+	fi
+
+	athena.docker.mount "$SQ_SONARLINT_DOCKERFILE/global.json" "/root/.sonarlint/conf/global.json"
 }
