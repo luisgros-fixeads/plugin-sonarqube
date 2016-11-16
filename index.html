@@ -189,34 +189,44 @@ https://sonarsource.bintray.com/CommercialDistribution/sonar-swift-plugin/sonar-
 <h4>
 <a id="sonarqube-scanner-options" class="anchor" href="#sonarqube-scanner-options" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>SonarQube Scanner options</h4>
 
-<div class="highlight highlight-source-shell"><pre>INFO: usage: sonar-scanner [options]
-INFO: 
-INFO: Options:
-INFO:  -D,--define <span class="pl-k">&lt;</span>arg<span class="pl-k">&gt;</span>     Define property
-INFO:  -h,--help             Display <span class="pl-c1">help</span> information
-INFO:  -v,--version          Display version information
-INFO:  -X,--debug            Produce execution debug output
-INFO:  -i,--interactive      Run interactively</pre></div>
+<div class="highlight highlight-source-shell"><pre>usage: sonar-scanner [options]
+Options:
+ -D,--define <span class="pl-k">&lt;</span>arg<span class="pl-k">&gt;</span>     Define property
+ -h,--help             Display <span class="pl-c1">help</span> information
+ -v,--version          Display version information
+ -X,--debug            Produce execution debug output
+ -i,--interactive      Run interactively</pre></div>
+
+<p>Some of the properties that can be defined (<strong>-D</strong>) for SonarQube Scanner </p>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-c1">sonar</span><span class="pl-k">.</span><span class="pl-c1">host</span><span class="pl-k">.</span><span class="pl-c1">url</span><span class="pl-k">=</span><span class="pl-c1">http</span>:<span class="pl-c">//thesonarserver:9000</span></span>
+<span class="pl-s1"><span class="pl-c1">sonar</span><span class="pl-k">.</span><span class="pl-c1">projectKey</span><span class="pl-k">=</span><span class="pl-c1">athena</span><span class="pl-k">-</span><span class="pl-c1">sonarqube</span><span class="pl-k">-</span><span class="pl-c1">plugin</span></span>
+<span class="pl-s1"><span class="pl-c1">sonar</span><span class="pl-k">.</span><span class="pl-c1">projectName</span><span class="pl-k">=</span><span class="pl-c1">Athena</span> <span class="pl-c1">SonarQube</span> <span class="pl-c1">Plugin</span></span>
+<span class="pl-s1"><span class="pl-c1">sonar</span><span class="pl-k">.</span><span class="pl-c1">projectVersion</span><span class="pl-k">=</span><span class="pl-c1">1.0</span><span class="pl-k">.</span><span class="pl-c1">0</span></span>
+<span class="pl-s1"><span class="pl-c1">sonar</span><span class="pl-k">.</span><span class="pl-c1">projectBaseDir</span><span class="pl-k">=</span><span class="pl-k">/</span><span class="pl-c1">home</span><span class="pl-k">/</span><span class="pl-c1">example</span><span class="pl-k">/</span><span class="pl-c1">projects</span><span class="pl-k">/</span><span class="pl-c1">plugin</span><span class="pl-k">-</span><span class="pl-c1">sonarqube</span></span>
+<span class="pl-s1"><span class="pl-c1">sonar</span><span class="pl-k">.</span><span class="pl-c1">sources</span><span class="pl-k">=</span><span class="pl-c1">bin</span><span class="pl-k">/</span>, <span class="pl-c1">docker</span><span class="pl-k">/</span>, <span class="pl-c1">example</span><span class="pl-k">/</span><span class="pl-c1">file</span><span class="pl-k">.</span><span class="pl-c1">php</span></span>
+<span class="pl-s1"><span class="pl-c1">sonar</span><span class="pl-k">.</span><span class="pl-c1">sourceEncoding</span><span class="pl-k">=</span><span class="pl-c1">UTF</span><span class="pl-k">-</span><span class="pl-c1">8</span></span>
+<span class="pl-s1"><span class="pl-c1">sonar</span><span class="pl-k">.</span><span class="pl-c1">language</span><span class="pl-k">=</span><span class="pl-c1">php</span></span>
+<span class="pl-s1">(<span class="pl-k">...</span>)</span></pre></div>
 
 <h4>
 <a id="sonarlint-cli-options" class="anchor" href="#sonarlint-cli-options" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>SonarLint CLI options</h4>
 
-<div class="highlight highlight-source-shell"><pre>INFO: usage: sonarlint [options]
-INFO: 
-INFO: Options:
-INFO:  -u,--update              Update binding with SonarQube server before analysis
-INFO:  -D,--define <span class="pl-k">&lt;</span>arg<span class="pl-k">&gt;</span>        Define property
-INFO:  -e,--errors              Produce execution error messages
-INFO:  -h,--help                Display <span class="pl-c1">help</span> information
-INFO:  -v,--version             Display version information
-INFO:  -X,--debug               Produce execution debug output
-INFO:  -i,--interactive         Run interactively
-INFO:  --html-report <span class="pl-k">&lt;</span>path<span class="pl-k">&gt;</span>     HTML report output path (relative or absolute)
-INFO:  --src <span class="pl-k">&lt;</span>glob pattern<span class="pl-k">&gt;</span>     GLOB pattern to identify <span class="pl-c1">source</span> files
-INFO:  --tests <span class="pl-k">&lt;</span>glob pattern<span class="pl-k">&gt;</span>   GLOB pattern to identify <span class="pl-c1">test</span> files
-INFO:  --exclude <span class="pl-k">&lt;</span>glob pattern<span class="pl-k">&gt;</span> GLOB pattern to exclude files
-INFO:  --charset <span class="pl-k">&lt;</span>name<span class="pl-k">&gt;</span>         Character encoding of the <span class="pl-c1">source</span> files
-</pre></div>
+<div class="highlight highlight-source-shell"><pre>usage: sonarlint [options]
+
+Options:
+ -u,--update              Update binding with SonarQube server before analysis
+ -D,--define <span class="pl-k">&lt;</span>arg<span class="pl-k">&gt;</span>        Define property
+ -e,--errors              Produce execution error messages
+ -h,--help                Display <span class="pl-c1">help</span> information
+ -v,--version             Display version information
+ -X,--debug               Produce execution debug output
+ -i,--interactive         Run interactively
+ --html-report <span class="pl-k">&lt;</span>path<span class="pl-k">&gt;</span>     HTML report output path (relative or absolute)
+ --src <span class="pl-k">&lt;</span>glob pattern<span class="pl-k">&gt;</span>     GLOB pattern to identify <span class="pl-c1">source</span> files
+ --tests <span class="pl-k">&lt;</span>glob pattern<span class="pl-k">&gt;</span>   GLOB pattern to identify <span class="pl-c1">test</span> files
+ --exclude <span class="pl-k">&lt;</span>glob pattern<span class="pl-k">&gt;</span> GLOB pattern to exclude files
+ --charset <span class="pl-k">&lt;</span>name<span class="pl-k">&gt;</span>         Character encoding of the <span class="pl-c1">source</span> files</pre></div>
 
 <h2>
 <a id="resources" class="anchor" href="#resources" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Resources</h2>
