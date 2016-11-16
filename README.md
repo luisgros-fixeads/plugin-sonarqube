@@ -95,7 +95,7 @@ curl -o /home/example/someproject/sonar-project.properties \
 
 #### Using [SonarLint CLI](http://www.sonarlint.org/commandline/index.html) to perform a quick code analysis of all php files in a directory
 ```sh  
-./athena sonarqube scanner /home/example/someproject/ --src public/*.php
+./athena sonarqube sonarlint ~/someproject/ --src public/*.php
 ```
 
 #### Installing and removing [SonarQube Plugins](http://docs.sonarqube.org/display/PLUG/Plugin+Library)
