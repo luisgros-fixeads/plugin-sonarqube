@@ -127,34 +127,43 @@ Athena SonarQube Plugin comes bundled with the following plugins:
 
 #### SonarQube Scanner options
 ```sh
-INFO: usage: sonar-scanner [options]
-INFO: 
-INFO: Options:
-INFO:  -D,--define <arg>     Define property
-INFO:  -h,--help             Display help information
-INFO:  -v,--version          Display version information
-INFO:  -X,--debug            Produce execution debug output
-INFO:  -i,--interactive      Run interactively
+usage: sonar-scanner [options]
+Options:
+ -D,--define <arg>     Define property
+ -h,--help             Display help information
+ -v,--version          Display version information
+ -X,--debug            Produce execution debug output
+ -i,--interactive      Run interactively
+```
+Some of the properties that can be defined (**-D**) for SonarQube Scanner 
+```php
+sonar.projectKey=athena-sonarqube-plugin
+sonar.projectName=Athena SonarQube Plugin
+sonar.projectVersion=1.0.0
+sonar.projectBaseDir=/home/example/projects/plugin-sonarqube
+sonar.sources=bin/, docker/, example/file.php
+sonar.sourceEncoding=UTF-8
+sonar.language=php
+(...)
 ```
 
 #### SonarLint CLI options
 ```sh
-INFO: usage: sonarlint [options]
-INFO: 
-INFO: Options:
-INFO:  -u,--update              Update binding with SonarQube server before analysis
-INFO:  -D,--define <arg>        Define property
-INFO:  -e,--errors              Produce execution error messages
-INFO:  -h,--help                Display help information
-INFO:  -v,--version             Display version information
-INFO:  -X,--debug               Produce execution debug output
-INFO:  -i,--interactive         Run interactively
-INFO:  --html-report <path>     HTML report output path (relative or absolute)
-INFO:  --src <glob pattern>     GLOB pattern to identify source files
-INFO:  --tests <glob pattern>   GLOB pattern to identify test files
-INFO:  --exclude <glob pattern> GLOB pattern to exclude files
-INFO:  --charset <name>         Character encoding of the source files
+usage: sonarlint [options]
 
+Options:
+ -u,--update              Update binding with SonarQube server before analysis
+ -D,--define <arg>        Define property
+ -e,--errors              Produce execution error messages
+ -h,--help                Display help information
+ -v,--version             Display version information
+ -X,--debug               Produce execution debug output
+ -i,--interactive         Run interactively
+ --html-report <path>     HTML report output path (relative or absolute)
+ --src <glob pattern>     GLOB pattern to identify source files
+ --tests <glob pattern>   GLOB pattern to identify test files
+ --exclude <glob pattern> GLOB pattern to exclude files
+ --charset <name>         Character encoding of the source files
 ```
 
 ## Resources
