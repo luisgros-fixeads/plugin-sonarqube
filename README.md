@@ -27,10 +27,30 @@ pre-installed to get you started quickly.
 
 ## Installation
 #### Install Athena
+
+##### Linux
+
+ Using a *debian package* from Athena [releases](https://github.com/athena-oss/athena/releases):
+ 
+```bash
+$ sudo dpkg -i <downloaded_debian_package>
+```
+   
+Using `apt-get`:
+  
+```bash
+$ sudo add-apt-repository ppa:athena-oss/athena
+$ sudo apt-get install athena
+```
+ 
+##### Mac
+Using [Homebrew](http://brew.sh/):
+```bash
+$ brew tap athena-oss/tap
+$ brew install athena
+```
+##### Universal
 ```sh
-brew tap athena-oss/tap
-brew install athena
-# or
 git clone https://github.com/athena-oss/athena.git
 ```
 [More info](https://github.com/athena-oss/athena)
