@@ -76,10 +76,30 @@ pre-installed to get you started quickly.</p>
 <h4>
 <a id="install-athena" class="anchor" href="#install-athena" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Install Athena</h4>
 
-<div class="highlight highlight-source-shell"><pre>brew tap athena-oss/tap
-brew install athena
-<span class="pl-c"># or</span>
-git clone https://github.com/athena-oss/athena.git</pre></div>
+<h5>
+<a id="linux" class="anchor" href="#linux" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Linux</h5>
+
+<p>Using a <em>debian package</em> from Athena <a href="https://github.com/athena-oss/athena/releases">releases</a>:</p>
+
+<div class="highlight highlight-source-shell"><pre>$ sudo dpkg -i <span class="pl-k">&lt;</span>downloaded_debian_package<span class="pl-k">&gt;</span></pre></div>
+
+<p>Using <code>apt-get</code>:</p>
+
+<div class="highlight highlight-source-shell"><pre>$ sudo add-apt-repository ppa:athena-oss/athena
+$ sudo apt-get install athena</pre></div>
+
+<h5>
+<a id="mac" class="anchor" href="#mac" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Mac</h5>
+
+<p>Using <a href="http://brew.sh/">Homebrew</a>:</p>
+
+<div class="highlight highlight-source-shell"><pre>$ brew tap athena-oss/tap
+$ brew install athena</pre></div>
+
+<h5>
+<a id="universal" class="anchor" href="#universal" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Universal</h5>
+
+<div class="highlight highlight-source-shell"><pre>git clone https://github.com/athena-oss/athena.git</pre></div>
 
 <p><a href="https://github.com/athena-oss/athena">More info</a></p>
 
@@ -94,22 +114,22 @@ git clone https://github.com/athena-oss/athena.git</pre></div>
 <h4>
 <a id="commands" class="anchor" href="#commands" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Commands</h4>
 
-<div class="highlight highlight-source-shell"><pre>./athena sonarqube server <span class="pl-k">&lt;</span>start<span class="pl-k">|</span>stop<span class="pl-k">|</span>restart<span class="pl-k">&gt;</span>
-./athena sonarqube scanner <span class="pl-k">&lt;</span>project-root-directory<span class="pl-k">&gt;</span> [<span class="pl-k">&lt;</span>sonar-scanner-options<span class="pl-k">&gt;</span>]
-./athena sonarqube sonarlint <span class="pl-k">&lt;</span>project-root-directory<span class="pl-k">&gt;</span> [<span class="pl-k">&lt;</span>sonarlint-cli-options<span class="pl-k">&gt;</span>]
-./athena sonarqube plugins <span class="pl-k">&lt;</span>install<span class="pl-k">|</span>remove<span class="pl-k">&gt;</span> <span class="pl-k">&lt;</span>plugin-jar-url<span class="pl-k">&gt;</span></pre></div>
+<div class="highlight highlight-source-shell"><pre>athena sonarqube server <span class="pl-k">&lt;</span>start<span class="pl-k">|</span>stop<span class="pl-k">|</span>restart<span class="pl-k">&gt;</span>
+athena sonarqube scanner <span class="pl-k">&lt;</span>project-root-directory<span class="pl-k">&gt;</span> [<span class="pl-k">&lt;</span>sonar-scanner-options<span class="pl-k">&gt;</span>]
+athena sonarqube sonarlint <span class="pl-k">&lt;</span>project-root-directory<span class="pl-k">&gt;</span> [<span class="pl-k">&lt;</span>sonarlint-cli-options<span class="pl-k">&gt;</span>]
+athena sonarqube plugins <span class="pl-k">&lt;</span>install<span class="pl-k">|</span>remove<span class="pl-k">&gt;</span> <span class="pl-k">&lt;</span>plugin-jar-url<span class="pl-k">&gt;</span></pre></div>
 
 <h4>
 <a id="start-the-sonarqube-server" class="anchor" href="#start-the-sonarqube-server" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Start the SonarQube Server</h4>
 
-<div class="highlight highlight-source-shell"><pre>./athena sonarqube server start</pre></div>
+<div class="highlight highlight-source-shell"><pre>athena sonarqube server start</pre></div>
 
 <p>This will provide you with a link to access your SonarQube web interface</p>
 
 <h4>
 <a id="run-a-code-analysis" class="anchor" href="#run-a-code-analysis" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Run a code analysis</h4>
 
-<div class="highlight highlight-source-shell"><pre>./athena sonarqube scanner <span class="pl-k">~</span>/myproject/</pre></div>
+<div class="highlight highlight-source-shell"><pre>athena sonarqube scanner <span class="pl-k">~</span>/myproject/</pre></div>
 
 <p>After that you will be able to access your code analysis report on SonarQube web interface, sometimes
 reports might take a little bit of time to display on the web interface depending on the project size, be patient.</p>
@@ -118,7 +138,7 @@ reports might take a little bit of time to display on the web interface dependin
 <a id="quick-analysis-with-sonarlint-cli" class="anchor" href="#quick-analysis-with-sonarlint-cli" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Quick analysis with <a href="http://www.sonarlint.org/commandline/index.html">SonarLint CLI</a>
 </h4>
 
-<div class="highlight highlight-source-shell"><pre>./athena sonarqube sonarlint <span class="pl-k">~</span>/myproject/</pre></div>
+<div class="highlight highlight-source-shell"><pre>athena sonarqube sonarlint <span class="pl-k">~</span>/myproject/</pre></div>
 
 <p>Unlike running code analysis with the SonarQube scanner when using SonarLint you don't need to start the SonarQube Server. After the SonarLint code analysis by default an html report file with be generated inside your project's root directory.</p>
 
@@ -128,13 +148,13 @@ reports might take a little bit of time to display on the web interface dependin
 <h4>
 <a id="using-sonarqube-scanner-options-to-only-analyze-certain-files-and-directories" class="anchor" href="#using-sonarqube-scanner-options-to-only-analyze-certain-files-and-directories" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Using SonarQube Scanner options to only analyze certain files and directories</h4>
 
-<div class="highlight highlight-source-shell"><pre>./athena sonarqube scanner /home/example/myotherproject/ \
+<div class="highlight highlight-source-shell"><pre>athena sonarqube scanner /home/example/myotherproject/ \
            -Dsonar.sources=vendor/mycode/script.php, somelib/file.php, web/</pre></div>
 
 <h4>
 <a id="using-a-different-sonarqube-server" class="anchor" href="#using-a-different-sonarqube-server" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Using a different SonarQube Server</h4>
 
-<div class="highlight highlight-source-shell"><pre>./athena sonarqube scanner /home/example/myotherproject/ \
+<div class="highlight highlight-source-shell"><pre>athena sonarqube scanner /home/example/myotherproject/ \
            -Dsonar.host.url=http://othersonarserver:9000
            -Dsonar.sources=vendor/mylib/, public/example.php</pre></div>
 
@@ -145,12 +165,12 @@ reports might take a little bit of time to display on the web interface dependin
 curl -o /home/example/someproject/sonar-project.properties \
   https://raw.githubusercontent.com/luisgros-fixeads/plugin-sonarqube/master/sonar-project.properties
 
-./athena sonarqube scanner /home/example/someproject/</pre></div>
+athena sonarqube scanner /home/example/someproject/</pre></div>
 
 <h4>
 <a id="using-sonarlint-cli-to-perform-a-quick-code-analysis-of-all-php-files-in-a-directory" class="anchor" href="#using-sonarlint-cli-to-perform-a-quick-code-analysis-of-all-php-files-in-a-directory" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Using <a href="http://www.sonarlint.org/commandline/index.html">SonarLint CLI</a> to perform a quick code analysis of all php files in a directory</h4>
 
-<div class="highlight highlight-source-shell"><pre>./athena sonarqube sonarlint <span class="pl-k">~</span>/someproject/ --src public/<span class="pl-k">*</span>.php</pre></div>
+<div class="highlight highlight-source-shell"><pre>athena sonarqube sonarlint <span class="pl-k">~</span>/someproject/ --src public/<span class="pl-k">*</span>.php</pre></div>
 
 <h4>
 <a id="installing-and-removing-sonarqube-plugins" class="anchor" href="#installing-and-removing-sonarqube-plugins" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installing and removing <a href="http://docs.sonarqube.org/display/PLUG/Plugin+Library">SonarQube Plugins</a>
@@ -159,17 +179,17 @@ curl -o /home/example/someproject/sonar-project.properties \
 <div class="highlight highlight-source-shell"><pre><span class="pl-c"># http://docs.sonarqube.org/display/PLUG/SWIFT+Plugin#lastVersion</span>
 
 <span class="pl-c"># Installing</span>
-./athena sonarqube plugins install \
+athena sonarqube plugins install \
 https://sonarsource.bintray.com/CommercialDistribution/sonar-swift-plugin/sonar-swift-plugin-1.7.jar
 
 <span class="pl-c"># Removing</span>
-./athena sonarqube plugins remove \
+athena sonarqube plugins remove \
 https://sonarsource.bintray.com/CommercialDistribution/sonar-swift-plugin/sonar-swift-plugin-1.7.jar
 <span class="pl-c"># or</span>
-./athena sonarqube plugins remove sonar-swift-plugin-1.7.jar
+athena sonarqube plugins remove sonar-swift-plugin-1.7.jar
 
 <span class="pl-c"># Listing installed plugins</span>
-./athena sonarqube plugins</pre></div>
+athena sonarqube plugins</pre></div>
 
 <h2>
 <a id="plugins" class="anchor" href="#plugins" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Plugins</h2>
