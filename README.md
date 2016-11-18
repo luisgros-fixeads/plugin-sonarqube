@@ -20,10 +20,10 @@ pre-installed to get you started quickly.
     - [Using SonarLint and excluding files](#using-sonarlint-cli-to-perform-a-quick-code-analysis-of-all-php-files-in-a-directory)
     - [Installing, removing and listing SonarQube Plugins](#installing-and-removing-sonarqube-plugins)
 - [Plugins](#plugins)
-- [CLI Options Reference](#plugins)
+- [CLI Options Reference](#cli-options-reference)
     - [SonarQube Scanner options](#sonarqube-scanner-options)
     - [SonarLint CLI options](#sonarlint-cli-options)
-- [Resources](#cli-options-reference)
+- [Resources](#resources)
 
 ## Installation
 #### Install Athena
