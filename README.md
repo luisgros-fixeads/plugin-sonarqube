@@ -155,7 +155,7 @@ Options:
  -X,--debug            Produce execution debug output
  -i,--interactive      Run interactively
 ```
-Some of the properties that can be defined (**-D**) for SonarQube Scanner 
+Some of the analysis properties/parameters that can be defined (**-D**) for SonarQube Scanner 
 ```php
 sonar.host.url=http://thesonarserver:9000
 sonar.projectKey=athena-sonarqube-plugin
@@ -165,8 +165,8 @@ sonar.projectBaseDir=/home/example/projects/plugin-sonarqube
 sonar.sources=bin/, docker/, example/file.php
 sonar.sourceEncoding=UTF-8
 sonar.language=php
-(...)
 ```
+[More info](http://docs.sonarqube.org/display/SONAR/Analysis+Parameters)
 
 #### SonarLint CLI options
 ```sh
