@@ -53,6 +53,7 @@ function athena.plugins.sonarqube.scanner()
 	athena.argument.prepend_to_arguments "-Dsonar.projectBaseDir=$PROJECT_ROOT_DIR"
 	athena.argument.prepend_to_arguments "-Dsonar.projectKey=$(basename $PROJECT_ROOT_DIR)"
 	athena.argument.prepend_to_arguments "-Dsonar.sources=$PROJECT_ROOT_DIR"
+	athena.argument.prepend_to_arguments "-Dsonar.exclusions=**/$SQ_SONARLINT_REPORT_DIR/**"
 
 	athena.plugin.use_container scanner
 	athena.docker.mount "$PROJECT_ROOT_DIR" "$PROJECT_ROOT_DIR"
@@ -138,7 +139,7 @@ function athena.plugins.sonarqube.sonarlint()
 	PROJECT_ROOT_DIR=$(athena.fs.get_full_path "$PROJECT_ROOT_DIR")
 
 	if ! $(athena.argument.argument_exists "--html-report"); then
-		athena.argument.append_to_arguments "--html-report $PROJECT_ROOT_DIR/sonarlint-report/sonarlint-report.html"
+		athena.argument.append_to_arguments "--html-report $PROJECT_ROOT_DIR/$SQ_SONARLINT_REPORT_DIR/$SQ_SONARLINT_REPORT_FILE"
 	fi
 
 	athena.info "Running SonarLint"
