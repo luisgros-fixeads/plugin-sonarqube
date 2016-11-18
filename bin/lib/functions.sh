@@ -138,7 +138,7 @@ function athena.plugins.sonarqube.sonarlint()
 	PROJECT_ROOT_DIR=$(athena.fs.get_full_path "$PROJECT_ROOT_DIR")
 
 	if ! $(athena.argument.argument_exists "--html-report"); then
-		athena.argument.append_to_arguments "--html-report $PROJECT_ROOT_DIR/sonarlint-report.html"
+		athena.argument.append_to_arguments "--html-report $PROJECT_ROOT_DIR/sonarlint-report/sonarlint-report.html"
 	fi
 
 	athena.info "Running SonarLint"

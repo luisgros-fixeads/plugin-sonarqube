@@ -87,7 +87,7 @@ reports might take a little bit of time to display on the web interface dependin
 ```sh
 athena sonarqube sonarlint ~/myproject/
 ``` 
-Unlike running code analysis with the SonarQube scanner when using SonarLint you don't need to start the SonarQube Server. After the SonarLint code analysis by default an html report file with be generated inside your project's root directory.
+Unlike running code analysis with the SonarQube scanner when using SonarLint you don't need to start the SonarQube Server. After the SonarLint code analysis by default a report directory (*sonarlint-report/*) with be created inside your project's root directory containing the html report file.
 
 ## Examples
 
