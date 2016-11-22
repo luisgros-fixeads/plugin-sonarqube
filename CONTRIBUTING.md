@@ -95,4 +95,4 @@ Mailing list - [Athena in Google Groups](https://groups.google.com/a/olx.com/d/f
 
 ## License
 
-By contributing to Athena, you agree that your contributions will be licensed under the [Apache License Version 2.0 (APLv2)](LICENSE).
+By contributing to Athena SonarQube Plugin, you agree that your contributions will be licensed under the [Apache License Version 2.0 (APLv2)](LICENSE).
