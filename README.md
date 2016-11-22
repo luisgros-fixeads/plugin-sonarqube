@@ -125,24 +125,6 @@ athena sonarqube scanner /home/example/someproject/
 athena sonarqube sonarlint ~/someproject/ --src public/*.php
 ```
 
-#### Installing and removing [SonarQube Plugins](http://docs.sonarqube.org/display/PLUG/Plugin+Library)
-```sh
-# http://docs.sonarqube.org/display/PLUG/SWIFT+Plugin#lastVersion
-
-# Installing
-athena sonarqube plugins install \
-https://sonarsource.bintray.com/Distribution/sonar-php-plugin/sonar-php-plugin-2.9.0.1664.jar
-
-# Removing
-athena sonarqube plugins remove \
-https://sonarsource.bintray.com/Distribution/sonar-php-plugin/sonar-php-plugin-2.9.0.1664.jar
-# or
-athena sonarqube plugins remove sonar-php-plugin-2.9.0.1664.jar
-
-# Listing installed plugins
-athena sonarqube plugins
-```
-
 ## Plugins
 
 #### Installing
