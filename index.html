@@ -23,8 +23,7 @@
 <a id="athena-sonarqube-plugin" class="anchor" href="#athena-sonarqube-plugin" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Athena SonarQube Plugin</h1>
 
 <p>This plugin tries to simplify the automation of your <a href="http://docs.sonarqube.org/display/SONAR/Architecture+and+Integration">SonarQube</a> code analysis, it comes
-with SonarQube Server, SonarQube Scanner and 4 plugins (PHP, CSS, Javascript and GitHub) 
-pre-installed to get you started quickly.</p>
+with SonarQube Server and SonarQube Scanner to get you started quickly.</p>
 
 <h2>
 <a id="table-of-content" class="anchor" href="#table-of-content" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Table of content</h2>
@@ -58,7 +57,16 @@ pre-installed to get you started quickly.</p>
 <li><a href="#installing-and-removing-sonarqube-plugins">Installing, removing and listing SonarQube Plugins</a></li>
 </ul>
 </li>
-<li><a href="#plugins">Plugins</a></li>
+<li>
+<a href="#plugins">Plugins</a>
+
+<ul>
+<li><a href="#installing">Installing</a></li>
+<li><a href="#removing">Removing</a></li>
+<li><a href="#listing-installed-plugins">Listing</a></li>
+<li><a href="#most-used-plugins">Most used</a></li>
+</ul>
+</li>
 <li>
 <a href="#cli-options-reference">CLI Options Reference</a>
 
@@ -68,6 +76,9 @@ pre-installed to get you started quickly.</p>
 </ul>
 </li>
 <li><a href="#resources">Resources</a></li>
+<li><a href="#contributing">Contributing</a></li>
+<li><a href="#versioning">Versioning</a></li>
+<li><a href="#license">License</a></li>
 </ul>
 
 <h2>
@@ -180,13 +191,13 @@ athena sonarqube scanner /home/example/someproject/</pre></div>
 
 <span class="pl-c"># Installing</span>
 athena sonarqube plugins install \
-https://sonarsource.bintray.com/CommercialDistribution/sonar-swift-plugin/sonar-swift-plugin-1.7.jar
+https://sonarsource.bintray.com/Distribution/sonar-php-plugin/sonar-php-plugin-2.9.0.1664.jar
 
 <span class="pl-c"># Removing</span>
 athena sonarqube plugins remove \
-https://sonarsource.bintray.com/CommercialDistribution/sonar-swift-plugin/sonar-swift-plugin-1.7.jar
+https://sonarsource.bintray.com/Distribution/sonar-php-plugin/sonar-php-plugin-2.9.0.1664.jar
 <span class="pl-c"># or</span>
-athena sonarqube plugins remove sonar-swift-plugin-1.7.jar
+athena sonarqube plugins remove sonar-php-plugin-2.9.0.1664.jar
 
 <span class="pl-c"># Listing installed plugins</span>
 athena sonarqube plugins</pre></div>
@@ -194,13 +205,35 @@ athena sonarqube plugins</pre></div>
 <h2>
 <a id="plugins" class="anchor" href="#plugins" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Plugins</h2>
 
-<p>Athena SonarQube Plugin comes bundled with the following plugins:</p>
+<h4>
+<a id="installing" class="anchor" href="#installing" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installing</h4>
+
+<div class="highlight highlight-source-shell"><pre>athena sonarqube plugins install \
+https://sonarsource.bintray.com/Distribution/sonar-php-plugin/sonar-php-plugin-2.9.0.1664.jar</pre></div>
+
+<h4>
+<a id="removing" class="anchor" href="#removing" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Removing</h4>
+
+<div class="highlight highlight-source-shell"><pre>athena sonarqube plugins remove \
+https://sonarsource.bintray.com/Distribution/sonar-php-plugin/sonar-php-plugin-2.9.0.1664.jar
+<span class="pl-c"># or</span>
+athena sonarqube plugins remove sonar-php-plugin-2.9.0.1664.jar</pre></div>
+
+<h4>
+<a id="listing-installed-plugins" class="anchor" href="#listing-installed-plugins" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Listing installed plugins</h4>
+
+<div class="highlight highlight-source-shell"><pre>athena sonarqube plugins</pre></div>
+
+<h4>
+<a id="most-used-plugins" class="anchor" href="#most-used-plugins" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Most used plugins</h4>
 
 <ul>
-<li><a href="http://docs.sonarqube.org/display/SCAN/Analyzing+with+SonarQube+Scanner">SonarQube PHP Plugin</a></li>
+<li><a href="http://docs.sonarqube.org/display/PLUG/PHP+Plugin">SonarQube PHP Plugin</a></li>
 <li><a href="http://docs.sonarqube.org/display/PLUG/GitHub+Plugin">SonarQube GitHub Plugin</a></li>
 <li><a href="https://github.com/racodond/sonar-css-plugin#readme">SonarQube CSS/Less Plugin</a></li>
 <li><a href="https://github.com/SonarSource/sonar-javascript#readme">SonarQube JavaScript Plugin</a></li>
+<li><a href="http://docs.sonarqube.org/display/PLUG/Java+Plugin">SonarQube Java Plugin</a></li>
+<li><a href="http://docs.sonarqube.org/display/PLUG/Plugin+Library">More SonarQube plugins</a></li>
 </ul>
 
 <h2>
@@ -259,6 +292,23 @@ Options:
 <p><a href="http://docs.sonarqube.org/display/SCAN/Analyzing+with+SonarQube+Scanner">Analyzing with SonarQube Scanner</a></p>
 
 <p><a href="http://docs.sonarqube.org/display/PLUG/Plugin+Library">SonarQube Plugin Library</a></p>
+
+<h2>
+<a id="contributing" class="anchor" href="#contributing" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Contributing</h2>
+
+<p>Checkout our guidelines on how to contribute in <a href="CONTRIBUTING.md">CONTRIBUTING.md</a>.</p>
+
+<h2>
+<a id="versioning" class="anchor" href="#versioning" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Versioning</h2>
+
+<p>Releases are managed using github's release feature. We use <a href="http://semver.org">Semantic Versioning</a> for all
+the releases. Every change made to the code base will be referred to in the release notes (except for
+cleanups and refactorings).</p>
+
+<h2>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>License</h2>
+
+<p>Licensed under the <a href="LICENSE">Apache License Version 2.0 (APLv2)</a>.</p>
 
       <footer class="site-footer">
         <span class="site-footer-owner"><a href="https://github.com/luisgros-fixeads/plugin-sonarqube">athena-plugin-sonarqube</a> is maintained by <a href="https://github.com/luisgros-fixeads">luisgros-fixeads</a>.</span>
