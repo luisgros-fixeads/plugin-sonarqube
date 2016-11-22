@@ -19,10 +19,18 @@ with SonarQube Server and SonarQube Scanner to get you started quickly.
     - [Using SonarLint and excluding files](#using-sonarlint-cli-to-perform-a-quick-code-analysis-of-all-php-files-in-a-directory)
     - [Installing, removing and listing SonarQube Plugins](#installing-and-removing-sonarqube-plugins)
 - [Plugins](#plugins)
+    - [Installing](#installing)
+    - [Removing](#removing)
+    - [Listing](#listing-installed-plugins)
+    - [Most used](#most-used-plugins)
 - [CLI Options Reference](#cli-options-reference)
     - [SonarQube Scanner options](#sonarqube-scanner-options)
     - [SonarLint CLI options](#sonarlint-cli-options)
 - [Resources](#resources)
+- [Contributing](#contributing)
+- [Versioning](#versioning)
+- [License](#license)
+
 
 ## Installation
 #### Install Athena
