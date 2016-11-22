@@ -1,8 +1,7 @@
 # Athena SonarQube Plugin
 
 This plugin tries to simplify the automation of your [SonarQube](http://docs.sonarqube.org/display/SONAR/Architecture+and+Integration) code analysis, it comes
-with SonarQube Server, SonarQube Scanner and 4 plugins (PHP, CSS, Javascript and GitHub) 
-pre-installed to get you started quickly.
+with SonarQube Server and SonarQube Scanner to get you started quickly.
 
 ## Table of content
 
@@ -124,24 +123,48 @@ athena sonarqube sonarlint ~/someproject/ --src public/*.php
 
 # Installing
 athena sonarqube plugins install \
-https://sonarsource.bintray.com/CommercialDistribution/sonar-swift-plugin/sonar-swift-plugin-1.7.jar
+https://sonarsource.bintray.com/Distribution/sonar-php-plugin/sonar-php-plugin-2.9.0.1664.jar
 
 # Removing
 athena sonarqube plugins remove \
-https://sonarsource.bintray.com/CommercialDistribution/sonar-swift-plugin/sonar-swift-plugin-1.7.jar
+https://sonarsource.bintray.com/Distribution/sonar-php-plugin/sonar-php-plugin-2.9.0.1664.jar
 # or
-athena sonarqube plugins remove sonar-swift-plugin-1.7.jar
+athena sonarqube plugins remove sonar-php-plugin-2.9.0.1664.jar
 
 # Listing installed plugins
 athena sonarqube plugins
 ```
 
 ## Plugins
-Athena SonarQube Plugin comes bundled with the following plugins:
-* [SonarQube PHP Plugin](http://docs.sonarqube.org/display/SCAN/Analyzing+with+SonarQube+Scanner)
+
+#### Installing
+```sh
+athena sonarqube plugins install \
+https://sonarsource.bintray.com/Distribution/sonar-php-plugin/sonar-php-plugin-2.9.0.1664.jar
+```
+
+
+#### Removing
+```sh
+athena sonarqube plugins remove \
+https://sonarsource.bintray.com/Distribution/sonar-php-plugin/sonar-php-plugin-2.9.0.1664.jar
+# or
+athena sonarqube plugins remove sonar-php-plugin-2.9.0.1664.jar
+```
+
+#### Listing installed plugins
+```sh
+athena sonarqube plugins
+```
+
+#### Most used plugins
+
+* [SonarQube PHP Plugin](http://docs.sonarqube.org/display/PLUG/PHP+Plugin)
 * [SonarQube GitHub Plugin](http://docs.sonarqube.org/display/PLUG/GitHub+Plugin)
 * [SonarQube CSS/Less Plugin](https://github.com/racodond/sonar-css-plugin#readme)
 * [SonarQube JavaScript Plugin](https://github.com/SonarSource/sonar-javascript#readme)
+* [SonarQube Java Plugin](http://docs.sonarqube.org/display/PLUG/Java+Plugin)
+* [More SonarQube plugins](http://docs.sonarqube.org/display/PLUG/Plugin+Library)
 
 ## CLI Options Reference
 
