@@ -1,4 +1,4 @@
-# Contributing to Athena
+# Contributing to Athena SonarQube Plugin
 
 Athena is the first [OLX](http://www.olx.com/) open source project that is both under very active development and is also being used to automate stuff at [OLX](http://www.olx.com/). We're still working the details to make contributing to this project as easy and transparent as possible. Hopefully with the help of this document and your feedback we will eventually make it.
 
