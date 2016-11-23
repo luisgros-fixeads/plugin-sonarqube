@@ -1,6 +1,6 @@
-CMD_DESCRIPTION="SonarQube Server"
+CMD_DESCRIPTION="<start|stop|restart>"
 
-athena.usage 1 "<start|stop|restart>"
+athena.usage 1 "$CMD_DESCRIPTION"
 
 SQ_SERVER_OPT="$(athena.arg 1)"
 

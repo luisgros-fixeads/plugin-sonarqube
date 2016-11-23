@@ -1,6 +1,6 @@
-CMD_DESCRIPTION="SonarQube Scanner"
+CMD_DESCRIPTION="<install|remove> [<plugin-jar-url>]"
 
-athena.usage 2  "<install|remove> [<plugin-jar-url>]" "$(athena.plugins.sonarqube.plugins_list)"
+athena.usage 2  "$CMD_DESCRIPTION" "$(athena.plugins.sonarqube.plugins_list)"
 
 SQ_PLUGIN_OPT="$(athena.arg 1)"
 SQ_PLUGIN_NAME="$(basename $(athena.arg 2))"
